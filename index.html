@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratus Marketing | Elevate Your Brand</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stratus-blue': {
+                            600: '#004AAD', // Primary accent color
+                            700: '#00387D', // Darker shade for hover
+                            500: '#3366BB', // Lighter shade for secondary buttons
+                            100: '#E6F0FA', // Light shade for text/backgrounds
+                            50: '#F5FAFF',  // Very light shade for hover states
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block !important;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #004AAD 0%, #3366BB 100%);
+        }
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <div class="dropdown relative">
+                        <button class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
+                            Services <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Digital Advertising</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Social Media Management</a>
+                        </div>
+                    </div>
+                    <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
+                    <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <button class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out">
+                        Get Started
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-stratus-blue-600 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden hero-gradient">
+        <div class="vanta-bg" id="vanta-bg"></div>
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Elevate Your Brand Above the Clouds
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
+                    Business Growth Experts based in Miami, we craft marketing strategies that help businesses soar with Meta Ads, lead generation, and branding — dedicated to scaling your pipeline.
+                </p>
+                <div class="mt-10 sm:flex sm:justify-center">
+                    <div class="rounded-md shadow">
+                        <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                            Get Started
+                        </a>
+                    </div>
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                        <a href="results.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                            See Our Results
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-stratus-blue-600 font-semibold tracking-wide uppercase">Services</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What We Offer
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Proven strategy that brings in warm leads for your business.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-500 text-white">
+                            <i data-feather="target"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Digital Advertising</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Precision-targeted campaigns across social media.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-500 text-white">
+                            <i data-feather="share-2"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Social Media Management</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Strategic content creation and community engagement to build your brand's social presence around trends.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="bg-gray-50">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <span class="block">Ready to take your marketing to new heights?</span>
+                <span class="block text-stratus-blue-600">Let's create something amazing together. I know you'll love the results.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-600 hover:bg-stratus-blue-700">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Navigation
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Services</a><br>
+                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
+                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
+                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Services
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Contact
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
+                        <p class="text-base text-gray-300">305-414-1772</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Follow Us
+                    </h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <p class="text-base text-gray-400">
+                    &copy; 2025 Stratus Marketing. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        feather.replace();
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x004AAD,
+            backgroundColor: 0x00000000, // Transparent to show hero-gradient
+            size: 0.8
+        });
+    </script>
+</body>
+</html>

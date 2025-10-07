@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Stratus Marketing</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stratus-blue': {
+                            600: '#004AAD', // Primary accent color
+                            700: '#00387D', // Darker shade for hover
+                            100: '#E6F0FA', // Light shade for text/backgrounds
+                            50: '#F5FAFF',  // Very light shade for hover states
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <div class="dropdown relative">
+                        <button class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
+                            Services <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Digital Advertising</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Social Media Management</a>
+                        </div>
+                    </div>
+                    <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
+                    <a href="about.html" class="text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <button class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out">
+                        Get Started
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-stratus-blue-600 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-stratus-blue-600">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                About Stratus Marketing
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
+                We're a dynamic digital marketing agency dedicated to elevating brands through innovative strategies and measurable results.
+            </p>
+        </div>
+    </div>
+
+    <!-- About Sections -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section 1: Our Story (Text Left, Photo Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="lg:pr-8">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Our Story</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Founded in 2025, Stratus Marketing started as a small team of passionate marketers who believed in the power of digital innovation, after successful campaigns. 
+                        From our humble beginnings in a garage office, we've grown into a multi-industry representative. 
+                        Our name "Stratus" represents the high-altitude clouds that bring clarity—much like how we cut through the noise of online to deliver clear, impactful results.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Proven clients, all with positive results</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Delivering on promises month over month</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Smart Strategies that analyze market trends</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <img src="generic1.png" alt="Our Story" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Section 2: Our Team (Photo Left, Text Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 lg:flex-row-reverse">
+                <div class="lg:pl-8">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Our Team</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        At the heart of Stratus is a diverse team involved in digital advertising, content creation, data analytics, and social media. We foster continuing education.
+                        Blending creativity with data-driven insights to craft campaigns that resonate. Our collaborative culture fosters innovation, ensuring every client gets personalized attention from strategy to execution.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Meta Partners</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Instagram Positioned</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Continuous Training & Development</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <img src="generic2.png" alt="Our Team" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Section 3: Our Values (Text Left, Photo Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:pr-8">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Our Values</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Integrity, Innovation, and Impact define us. We believe in transparent partnerships, pushing boundaries with cutting-edge tools, 
+                        and delivering ROI that transforms businesses. We've seen the results, and we're eager to get you onboarded.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Transparent expectations</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Results-First Approach</li>
+                        <li><i data-feather="check-circle" class="inline mr-2 w-5 h-5 text-stratus-blue-600"></i>Ethical Marketing, no jargon</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <img src="generic3.png" alt="Our Values" class="w-full h-64 object-cover rounded-lg shadow-md">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-stratus-blue-600">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                    <span class="block">Ready to Elevate Your Brand?</span>
+                </h2>
+                <div class="mt-8 flex justify-center">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="contact.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-600 bg-white hover:bg-stratus-blue-50">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Navigation
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Services</a><br>
+                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
+                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
+                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Services
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Contact
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
+                        <p class="text-base text-gray-300">305-414-1772</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Follow Us
+                    </h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <p class="text-base text-gray-400">
+                    &copy; 2025 Stratus Marketing. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

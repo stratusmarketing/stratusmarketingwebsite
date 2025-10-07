@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Results | Stratus Marketing</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stratus-blue': {
+                            600: '#004AAD', // Primary accent color
+                            700: '#00387D', // Darker shade for hover
+                            100: '#E6F0FA', // Light shade for text/backgrounds
+                            50: '#F5FAFF',  // Very light shade for hover states
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <div class="dropdown relative">
+                        <button class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
+                            Services <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Digital Advertising</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Social Media Management</a>
+                        </div>
+                    </div>
+                    <a href="results.html" class="text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
+                    <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <button class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out">
+                        Get Started
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-stratus-blue-600 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-stratus-blue-600">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Our Portfolio of Success
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
+                See how we've helped businesses like yours achieve remarkable results.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-stratus-blue-600 font-semibold tracking-wide uppercase">Case Studies</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Real Clients, Real Results
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="client1.png" alt="Tech Startup">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Fly MKLeighton</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Grew to a leader in the area</li>
+                            <li><strong>Challenge:</strong> Low brand awareness in competitive market</li>
+                            <li><strong>Solution:</strong> Targeted digital ad campaigns with brand ambassador content</li>
+                            <li class="font-semibold text-stratus-blue-600">100% successful lead generation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="client2.png" alt="Retail Brand">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">AV8R Academy</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Zero to Hero School</li>
+                            <li><strong>Challenge:</strong> Small town, little brand awareness</li>
+                            <li><strong>Solution:</strong> Emphasized quality and convenience</li>
+                            <li class="font-semibold text-stratus-blue-600">100% successful lead generation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="client3.png" alt="Restaurant Chain">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Core Aviator Training</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Busy/popular training environment</li>
+                            <li><strong>Challenge:</strong> Inconsistent digital presence</li>
+                            <li><strong>Solution:</strong> Reorganized social media presence and targeted ad campaign</li>
+                            <li class="font-semibold text-stratus-blue-600">10x growth month over month</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="client4.png" alt="Health & Wellness">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Aylor Aviation</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Located in the most popular place to fly</li>
+                            <li><strong>Challenge:</strong> Limited/None digital footprint</li>
+                            <li><strong>Solution:</strong> Curated script-assisted video creation/ad management</li>
+                            <li class="font-semibold text-stratus-blue-600">100% successful lead generation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="client5.png" alt="EdTech">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Bright Careers Ahead</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Innovative career guidance solution/consultant</li>
+                            <li><strong>Challenge:</strong> Low conversion rates</li>
+                            <li><strong>Solution:</strong> Retargeting campaigns with A/B testing</li>
+                            <li class="font-semibold text-stratus-blue-600">Day and night conversion improvement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img class="w-full h-64 object-cover" src="http://static.photos/finance/640x360/6" alt="Financial Services">
+                        <div class="portfolio-overlay absolute inset-0 bg-stratus-blue-600 bg-opacity-75 opacity-0 flex items-center justify-center">
+                            <button class="text-white px-4 py-2 border border-white rounded-md hover:bg-white hover:text-stratus-blue-600 transition duration-150">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Financial Services</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                            <li><strong>Positioning:</strong> Boutique investment firm</li>
+                            <li><strong>Challenge:</strong> Trust deficit in digital space</li>
+                            <li><strong>Solution:</strong> Authority-building content strategy</li>
+                            <li class="font-semibold text-stratus-blue-600">+90% qualified leads</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="results.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-stratus-blue-600 hover:bg-stratus-blue-700">
+                    See All Case Studies
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-stratus-blue-600">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                    <span class="block">Ready to see what we can do for your business?</span>
+                </h2>
+                <div class="mt-8 flex justify-center">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="contact.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-600 bg-white hover:bg-stratus-blue-50">
+                            Get in touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Navigation
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Services</a><br>
+                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
+                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
+                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Services
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Contact
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
+                        <p class="text-base text-gray-300">305-414-1772</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Follow Us
+                    </h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <p class="text-base text-gray-400">
+                    &copy; 2025 Stratus Marketing. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
