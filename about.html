@@ -43,14 +43,27 @@
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
                     <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-                    <div class="dropdown relative">
-                        <button class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
-                            Services <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
-                        </button>
-                        <div class="dropdown-menu hidden absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Digital Advertising</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">Social Media Management</a>
-                        </div>
+<!-- Services Dropdown – Main button clickable + dropdown on hover -->
+<div class="dropdown relative">
+    <!-- This is the clickable main "Services" link (styled exactly like your other nav items) -->
+    <a href="services.html" 
+       class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center">
+        Services 
+        <i data-feather="chevron-down" class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+    </a>
+
+    <!-- Dropdown menu (still appears on hover of the entire item) -->
+    <div class="dropdown-menu hidden hover:block dropdown:hover:block absolute z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div class="py-1">
+            <a href="services.html#digital-advertising" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
+                Digital Advertising
+            </a>
+            <a href="services.html#social-media" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
+                Social Media Management
+            </a>
+        </div>
                     </div>
                     <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
                     <a href="about.html" class="text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
@@ -233,5 +246,6 @@
     </script>
 </body>
 </html>
+
 
 
