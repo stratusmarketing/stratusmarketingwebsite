@@ -4,43 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stratus Marketing | Elevate Your Brand</title>
-	<!-- FAVICONS for GitHub Pages (2025 best practice) -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/my-favicons/apple-touch-icon.png">
-	<!-- Standard favicon (covers almost all browsers + tabs) -->
-	<link rel="icon" href="/my-favicons/web-app-manifest-512x512.png">
-	<!-- Android Chrome “Add to Home Screen” icons (PWA style) -->
-	<link rel="manifest" href="/my-favicons/site.webmanifest">
-	<!-- Optional but recommended: bigger sizes for high-DPI screens -->
-	<link rel="icon" type="image/png" sizes="192x192" href="/my-favicons/web-app-manifest-192x192.png">
-	<link rel="icon" type="image/png" sizes="512x512" href="/my-favicons/web-app-manifest-512x512.png">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": "Organization",
-		  "name": "Stratus Marketing LLC",
-		  "url": "https://stratusmarketingllc.com/",
-		  "logo": "https://stratusmarketingllc.com/logo.png",
-		  "sameAs": [
-		    "https://www.facebook.com/yourpage",
-		    "https://www.instagram.com/yourhandle",
-		    "https://www.linkedin.com/company/yourcompany"
-		  ]
-		}
-</script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'stratus-blue': {
-                            600: '#004AAD', // Primary accent color
-                            700: '#00387D', // Darker shade for hover
-                            500: '#3366BB', // Lighter shade for secondary buttons
-                            100: '#E6F0FA', // Light shade for text/backgrounds
-                            50: '#F5FAFF',  // Very light shade for hover states
+                            600: '#004AAD',
+                            700: '#00387D',
+                            500: '#3366BB',
+                            100: '#E6F0FA',
+                            50: '#F5FAFF',
                         }
                     }
                 }
@@ -77,34 +55,34 @@
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
                     <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-					<!-- Services Dropdown + Clickable Main Button -->
-					<div class="dropdown relative group">
-					    <!-- This <a> wraps the button so the whole "Services" text is clickable -->
-					    <a href="services.html" class="absolute inset-0 z-10"></a>
+<!-- Services Dropdown + Clickable Main Button -->
+<div class="dropdown relative group">
+    <!-- This <a> wraps the button so the whole "Services" text is clickable -->
+    <a href="services.html" class="absolute inset-0 z-10"></a>
     
-					    <button class="relative text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
-					        Services <i data-feather="chevron-down" class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180"></i>
-					    </button>
+    <button class="relative text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium focus:outline-none flex items-center">
+        Services <i data-feather="chevron-down" class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180"></i>
+    </button>
 
-					    <!-- Dropdown menu (appears on hover) -->
-					    <div class="dropdown-menu hidden group-hover:block absolute z-20 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
- 					       <div class="py-1">
- 					           <a href="services.html#digital-advertising" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-  					              Digital Advertising
- 					           </a>
-					            <a href="services.html#social-media" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-					                Social Media Management
- 					           </a>
- 					       </div>
-					    </div>
-					</div>
+    <!-- Dropdown menu (appears on hover) -->
+    <div class="dropdown-menu hidden group-hover:block absolute z-20 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div class="py-1">
+            <a href="services.html#digital-advertising" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
+                Digital Advertising
+            </a>
+            <a href="services.html#social-media" class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
+                Social Media Management
+            </a>
+        </div>
+    </div>
+</div>
                     </div>
                     <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
                     <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
                     <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
 					<a href="contact.html" 
-					   class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
-					  Get Started
+					class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
+					Get Started
 					</a>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -116,28 +94,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Interactive Photo on the Right -->
     <div class="relative overflow-hidden hero-gradient">
         <div class="vanta-bg" id="vanta-bg"></div>
         <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                    Elevate Your Brand Above the Clouds
-                </h1>
-                <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
-                    Business Growth Experts based in Miami, we craft marketing strategies that help businesses soar with Meta Ads, lead generation, and branding — dedicated to scaling your pipeline.
-                </p>
-                <div class="mt-10 sm:flex sm:justify-center">
-                    <div class="rounded-md shadow">
-                        <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                            Get Started
-                        </a>
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div>
+                    <!-- Mobile image (shown only on small screens) -->
+                    <img src="page1.png" alt="Stratus Marketing Hero" class="rounded-lg shadow-xl mb-8 lg:hidden w-full">
+
+                    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                        Elevate Your Brand Above the Clouds
+                    </h1>
+                    <p class="mt-6 max-w-3xl text-xl text-stratus-blue-100">
+                        Business Growth Experts based in Miami, we craft marketing strategies that help businesses soar with Meta Ads, lead generation, and branding — dedicated to scaling your pipeline.
+                    </p>
+                    <div class="mt-10 sm:flex sm:justify-start">
+                        <div class="rounded-md shadow">
+                            <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                Get Started
+                            </a>
+                        </div>
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                            <a href="results.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                                See Our Results
+                            </a>
+                        </div>
                     </div>
-                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                        <a href="results.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
-                            See Our Results
-                        </a>
-                    </div>
+                </div>
+
+                <!-- Right: Interactive Photo (hidden on mobile) -->
+                <div class="hidden lg:block mt-10 lg:mt-0">
+                    <img src="page1.png" 
+                         alt="Stratus Marketing - Elevate Your Brand" 
+                         class="rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
                 </div>
             </div>
         </div>
@@ -155,7 +146,6 @@
                     Proven strategy that brings in warm leads for your business.
                 </p>
             </div>
-
             <div class="mt-10">
                 <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                     <div class="relative">
@@ -167,7 +157,6 @@
                             Precision-targeted campaigns across social media.
                         </p>
                     </div>
-
                     <div class="relative">
                         <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-500 text-white">
                             <i data-feather="share-2"></i>
@@ -204,9 +193,7 @@
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Navigation
-                    </h3>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Navigation</h3>
                     <div class="mt-4 space-y-4">
                         <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
                         <a href="services.html" class="text-base text-gray-300 hover:text-white">Services</a><br>
@@ -216,35 +203,27 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Services
-                    </h3>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
                     <div class="mt-4 space-y-4">
                         <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
                         <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
                     </div>
                 </div>
-				<div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Legal
-                    </h3>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
                     <div class="mt-4 space-y-4">
                         <a href="privacypolicy.html" class="text-base text-gray-300 hover:text-white">Privacy Policy</a><br>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Contact
-                    </h3>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contact</h3>
                     <div class="mt-4 space-y-4">
                         <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
                         <p class="text-base text-gray-300">305-414-1772</p>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Follow Us
-                    </h3>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Follow Us</h3>
                     <div class="mt-4 flex space-x-6">
                         <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
                             <i data-feather="facebook" class="h-6 w-6"></i>
@@ -276,14 +255,9 @@
             scale: 1.00,
             scaleMobile: 1.00,
             color: 0x004AAD,
-            backgroundColor: 0x00000000, // Transparent to show hero-gradient
+            backgroundColor: 0x00000000,
             size: 0.8
         });
     </script>
 </body>
 </html>
-
-
-
-
-
