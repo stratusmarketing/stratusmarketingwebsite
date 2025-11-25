@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Stratus Marketing</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stratus-blue': {
+                            600: '#004AAD', // Primary accent color
+                            700: '#00387D', // Darker shade for hover
+                            100: '#E6F0FA', // Light shade for text/backgrounds
+                            50: '#F5FAFF',  // Very light shade for hover states
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+<style>
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #004AAD 0%, #00387D 100%);
+}
+</style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="http://static.photos/technology/200x200/123" alt="Stratus Marketing Logo" class="h-10 w-auto">
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="services.html" class="text-stratus-blue-600 px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
+                    <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+					<a href="contact.html" 
+					class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
+					Get Started
+					</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Our Services
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
+Comprehensive marketing solutions designed to elevate your intake
+            </p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Digital Advertising -->
+                <div class="service-card rounded-xl bg-white p-8 shadow-lg transition duration-300 ease-in-out">
+                    <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-600 text-white">
+<i data-feather="target" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="ml-4 text-2xl font-bold text-gray-900">Digital Advertising</h3>
+                    </div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Our data-driven digital advertising strategies put your brand in front of the right audience at the perfect time.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-stratus-blue-600" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Targeted campaigns across Facebook and Instagram
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-stratus-blue-600" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Advanced geolocating and use of algorithm for best results
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Comprehensive analytics and optimization for maximum ROI
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Management -->
+                <div class="service-card rounded-xl bg-white p-8 shadow-lg transition duration-300 ease-in-out">
+                    <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-600 text-white">
+<i data-feather="share-2" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="ml-4 text-2xl font-bold text-gray-900">Social Media Management</h3>
+                    </div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We craft compelling social media advertisement videos that engage your target audience.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Business-specific content strategy and calendar management
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Community engagement through personal messaging
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-base text-gray-700">
+                                Performance tracking and growth analytics
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="mt-16 text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Comprehensive Marketing Solution
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Beyond our core service, we offer additional strategic marketing solutions such as incorporating AI and organic growth.
+                </p>
+                
+                <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-600 text-white mx-auto">
+<i data-feather="search" class="h-6 w-6"></i>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">SEO Optimization</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Improve your search rankings and organic visibility with our technical and content SEO strategies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-600 text-white mx-auto">
+<i data-feather="mail" class="h-6 w-6"></i>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Email Marketing</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Automated email sequences and newsletters that nurture leads and drive conversions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-600 text-white mx-auto">
+<i data-feather="edit" class="h-6 w-6"></i>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Content Creation</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    High-quality blog posts, videos, and graphics that establish your brand as an industry authority.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                    <span class="block">Ready to elevate your marketing strategy?</span>
+                </h2>
+                <div class="mt-8 flex justify-center">
+                    <div class="inline-flex rounded-md shadow">
+                            <a href="contact.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-600 bg-white hover:bg-stratus-blue-50">
+Get started today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Navigation
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Services</a><br>
+                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
+                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
+                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Services
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
+                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
+                    </div>
+                </div>
+				<div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Legal
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <a href="privacypolicy.html" class="text-base text-gray-300 hover:text-white">Privacy Policy</a><br>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Contact
+                    </h3>
+                    <div class="mt-4 space-y-4">
+                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
+                        <p class="text-base text-gray-300">305-414-1772</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                        Follow Us
+                    </h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                <p class="text-base text-gray-400">
+                    &copy; 2025 Stratus Marketing. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
