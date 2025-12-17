@@ -1,228 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Stratus Marketing</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <style>
-        .dropdown:hover .dropdown-menu,
-        .dropdown-menu:hover {
-            display: block !important;
-        }
-
-        /* Custom Color Palette */
-        .bg-primary { background-color: #004AAD; }
-        .bg-primary-dark { background-color: #00387D; }
-        .bg-light { background-color: #E6F0FA; }
-        .bg-xlight { background-color: #F5FAFF; }
-
-        .text-primary { color: #004AAD; }
-        .text-primary-dark { color: #00387D; }
-
-        .hover\:bg-primary-dark:hover { background-color: #00387D; }
-        .hover\:bg-xlight:hover { background-color: #F5FAFF; }
-        .hover\:text-primary:hover { color: #004AAD; }
-
-        /* Hero Gradient */
-        .hero-gradient {
-            background: linear-gradient(135deg, #004AAD 0%, #00387D 100%);
-        }
-
-        /* Button Styles */
-        .btn-primary {
-            @apply bg-primary text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out;
-        }
-        .btn-primary:hover {
-            @apply bg-primary-dark;
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-button:hover {
-            @apply text-primary bg-xlight;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | Stratus Marketing</title>
+  <meta name="description" content="Privacy Policy for Stratus Marketing." />
+  <link rel="canonical" href="https://stratusmarketingllc.com/privacypolicy.html" />
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
-                    </div>
-                </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="index.html" class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Home</a>
-<!-- Services Dropdown – Main button clickable + dropdown on hover -->
-<div class="dropdown relative">
-    <!-- This is the clickable main "Services" link (styled exactly like your other nav items) -->
-    <a href="services.html" 
-       class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center">
-        Services 
-        <i data-feather="chevron-down" class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
-    </a>
+<body>
 
-    <!-- Dropdown menu (still appears on hover of the entire item) -->
-    <div class="dropdown-menu hidden hover:block dropdown:hover:block absolute z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-        <div class="py-1">
-            <a href="services.html#digital-advertising" 
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-                Digital Advertising
-            </a>
-            <a href="services.html#social-media" 
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-                Social Media Management
-            </a>
-        </div>
-                    </div>
-                    <a href="results.html" class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Results</a>
-                    <a href="about.html" class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">About</a>
-                    <a href="contact.html" class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Contact</a>
-                    <a href="contact.html" 
-                       class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
-                      Get Started
-                    </a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo.svg" alt="Stratus Marketing logo"></a>
+    <div class="navlinks">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="btn" onclick="toggleTheme()">🌓 Theme</button>
+      <a class="btn btn-primary" href="book.html">Book Now</a>
+      <button type="button" class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="container inner">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="why.html">Why Ads</a><a href="how.html">How It Works</a><a href="book.html">Book Now</a>
+    </div>
+  </div>
+</div>
 
-    <!-- Hero Section -->
-    <div class="hero-gradient">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Privacy Policy
-            </h1>
-            <p class="mt-6 max-w-3xl mx-auto text-xl text-[#E6F0FA]">
-                Last Updated: November 12, 2025
+<header class="hero">
+  <div class="container">
+    <div class="pill reveal">☁️ Legal</div>
+    <h1 class="h1 reveal" style="margin-top:14px;">Privacy Policy</h1>
+    <p class="sub reveal">Last Updated: November 12, 2025</p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="banner reveal">
+        <div class="prose">
+          <h2>Information We Collect</h2>
+          <p>We collect information that you provide to us directly, such as when you fill out forms on our website, communicate with us, or use our services. This may include:</p>
+          <ul>
+            <li>Personal identification information (Name, email address, phone number, etc.)</li>
+            <li>Business information (Company name, job title, etc.)</li>
+            <li>Payment information (for service purchases)</li>
+            <li>Any other information you choose to provide</li>
+          </ul>
+
+          <h2>How We Use Your Information</h2>
+          <p>We use the information we collect for various purposes, including:</p>
+          <ul>
+            <li>To provide and maintain our services</li>
+            <li>To notify you about changes to our services</li>
+            <li>To provide customer support</li>
+            <li>To gather analysis or valuable information so that we can improve our services</li>
+            <li>To monitor the usage of our services</li>
+            <li>To detect, prevent and address technical issues</li>
+          </ul>
+
+          <h2>Information Sharing and Disclosure</h2>
+          <p>We do not share your personal information with third parties except as described in this policy. We may disclose your personal information:</p>
+          <ul>
+            <li>To service providers who perform services on our behalf</li>
+            <li>To comply with legal obligations</li>
+            <li>To protect and defend our rights and property</li>
+            <li>To prevent or investigate possible wrongdoing in connection with our services</li>
+            <li>To protect the personal safety of users of our services or the public</li>
+          </ul>
+
+          <div class="callout">
+            <p style="margin:0; font-weight:1000;">
+              No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+              All other categories exclude text messaging originator opt-in data and consent;
+              this information will not be shared with any third parties.
             </p>
+          </div>
+
+          <h2>Cookies and Tracking Technologies</h2>
+          <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
+
+          <h2>Data Security</h2>
+          <p>We implement appropriate technical and organizational measures to protect the security of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+
+          <h2>Changes to This Privacy Policy</h2>
+          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+
         </div>
+      </div>
     </div>
+  </section>
+</main>
 
-    <!-- Policy Content -->
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div class="prose prose-indigo lg:prose-lg mx-auto">
-            <h2 class="text-2xl font-bold text-gray-900">Information We Collect</h2>
-            <p>We collect information that you provide to us directly, such as when you fill out forms on our website, communicate with us, or use our services. This may include:</p>
-            <ul>
-                <li>Personal identification information (Name, email address, phone number, etc.)</li>
-                <li>Business information (Company name, job title, etc.)</li>
-                <li>Payment information (for service purchases)</li>
-                <li>Any other information you choose to provide</li>
-            </ul>
-
-            <h2 class="text-2xl font-bold text-gray-900 mt-8">How We Use Your Information</h2>
-            <p>We use the information we collect for various purposes, including:</p>
-            <ul>
-                <li>To provide and maintain our services</li>
-                <li>To notify you about changes to our services</li>
-                <li>To provide customer support</li>
-                <li>To gather analysis or valuable information so that we can improve our services</li>
-                <li>To monitor the usage of our services</li>
-                <li>To detect, prevent and address technical issues</li>
-            </ul>
-
-            <h2 class="text-2xl font-bold text-gray-900 mt-8">Information Sharing and Disclosure</h2>
-            <p>We do not share your personal information with third parties except as described in this policy. We may disclose your personal information:</p>
-            <ul>
-                <li>To service providers who perform services on our behalf</li>
-                <li>To comply with legal obligations</li>
-                <li>To protect and defend our rights and property</li>
-                <li>To prevent or investigate possible wrongdoing in connection with our services</li>
-                <li>To protect the personal safety of users of our services or the public</li>
-            </ul>
-
-            <div class="bg-light p-4 rounded-md my-6 border border-[#E6F0FA]">
-                <p class="font-semibold text-primary-dark">
-                    No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. 
-                    All other categories exclude text messaging originator opt-in data and consent; 
-                    this information will not be shared with any third parties.
-                </p>
-            </div>
-
-            <h2 class="text-2xl font-bold text-gray-900 mt-8">Cookies and Tracking Technologies</h2>
-            <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
-
-            <h2 class="text-2xl font-bold text-gray-900 mt-8">Data Security</h2>
-            <p>We implement appropriate technical and organizational measures to protect the security of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
-
-            <h2 class="text-2xl font-bold text-gray-900 mt-8">Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-
-            </ul>
-        </div>
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© <span id="year"></span> Stratus Marketing LLC. All rights reserved.</div>
+    <div>
+      <a href="index.html">Home</a> •
+      <a href="services.html">Services</a> •
+      <a href="results.html">Results</a> •
+      <a href="about.html">About</a> •
+      <a href="contact.html">Contact</a>
     </div>
+  </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Navigation
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
-                        <a href="services.html" class="text-base text-gray-300 hover:text-white">Services</a><br>
-                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
-                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
-                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Legal
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="privacypolicy.html" class="text-base text-gray-300 hover:text-white">Privacy Policy</a><br>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Contact
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
-                        <p class="text-base text-gray-300">(305) 414-1772</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Follow Us
-                    </h3>
-                    <div class="mt-4 flex space-x-6">
-                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
-                            <i data-feather="instagram" class="h-6 w-6"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
-                            <i data-feather="linkedin" class="h-6 w-6"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-                <p class="text-base text-gray-400">
-                    &copy; 2025 Stratus Marketing LLC. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        feather.replace();
-    </script>
+<script src="app.js"></script>
 </body>
-
 </html>
-
-

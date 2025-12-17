@@ -1,231 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Stratus Marketing</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'stratus-blue': {
-                            600: '#004AAD', // Primary accent color
-                            700: '#00387D', // Darker shade for hover
-                            100: '#E6F0FA', // Light shade for text/backgrounds
-                            50: '#F5FAFF',  // Very light shade for hover states
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .dropdown:hover .dropdown-menu,
-        .dropdown-menu:hover {
-            display: block !important;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Stratus Marketing</title>
+  <meta name="description" content="Contact Stratus Marketing for flight school marketing, lead generation, and paid ads. Email, call, or send a message to get started." />
+  <link rel="canonical" href="https://stratusmarketingllc.com/contact.html" />
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
-                    </div>
-                </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-<!-- Services Dropdown – Main button clickable + dropdown on hover -->
-<div class="dropdown relative">
-    <!-- This is the clickable main "Services" link (styled exactly like your other nav items) -->
-    <a href="services.html" 
-       class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center">
-        Services 
-        <i data-feather="chevron-down" class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
-    </a>
+<body>
 
-    <!-- Dropdown menu (still appears on hover of the entire item) -->
-    <div class="dropdown-menu hidden hover:block dropdown:hover:block absolute z-50 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-        <div class="py-1">
-            <a href="services.html#digital-advertising" 
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-                Digital Advertising
-            </a>
-            <a href="services.html#social-media" 
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-stratus-blue-50">
-                Social Media Management
-            </a>
-        </div>
-                    </div>
-                    <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
-                    <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
-                    <a href="contact.html" class="text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
-					<a href="contact.html" 
-					   class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
-					  Get Started
-					</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-stratus-blue-600 hover:bg-gray-100 focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section with Contact Form -->
-    <div class="bg-stratus-blue-600">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Ready to boost your Business?
-            </h1>
-            <p class="mt-6 max-w-3xl mx-auto text-xl text-stratus-blue-100">
-                Get in touch with our team for a meeting to discuss a campaign that works best for you.
-            </p>
-            <div class="mt-12 max-w-lg mx-auto">
-                <div class="bg-white rounded-lg shadow-md p-8">
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name/Business/Position</label>
-                            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-stratus-blue-600 focus:ring focus:ring-stratus-blue-600 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-stratus-blue-600 focus:ring focus:ring-stratus-blue-600 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-stratus-blue-600 focus:ring focus:ring-stratus-blue-600 focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-stratus-blue-600 focus:ring focus:ring-stratus-blue-600 focus:ring-opacity-50"></textarea>
-                        </div>
-                        <div>
-                            <label for="contact-method" class="block text-sm font-medium text-gray-700">Preferred Contact Method</label>
-                            <select id="contact-method" name="contact-method" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-stratus-blue-600 focus:ring focus:ring-stratus-blue-600 focus:ring-opacity-50">
-                                <option value="email">Email</option>
-                                <option value="phone">Phone</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo.svg" alt="Stratus Marketing logo"></a>
+    <div class="navlinks">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
     </div>
+    <div class="nav-actions">
+      <button type="button" class="btn" onclick="toggleTheme()">🌓 Theme</button>
+      <a class="btn btn-primary" href="book.html">Book Now</a>
+      <button type="button" class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="container inner">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="why.html">Why Ads</a><a href="how.html">How It Works</a><a href="book.html">Book Now</a>
+    </div>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Navigation
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
-                        <a href="services.html" class="text-base text-gray-300 hover:text-white">Services</a><br>
-                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
-                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
-                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Services
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
-                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
-                    </div>
-                </div>
-				<div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Legal
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="privacypolicy.html" class="text-base text-gray-300 hover:text-white">Privacy Policy</a><br>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Contact
-                    </h3>
-                    <div class="mt-4 space-y-4">
-                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
-                        <p class="text-base text-gray-300">305-414-1772</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                        Follow Us
-                    </h3>
-                    <div class="mt-4 flex space-x-6">
-                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
-                            <i data-feather="facebook" class="h-6 w-6"></i>
-                        </a>
-                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
-                            <i data-feather="instagram" class="h-6 w-6"></i>
-                        </a>
-                    </div>
-                </div>
+<header class="hero">
+  <div class="container">
+    <div class="pill reveal">☁️ Contact</div>
+    <h1 class="h1 reveal" style="margin-top:14px;">Let’s build your pipeline.</h1>
+    <p class="sub reveal">Fastest response? Text/call/email — or send a message below.</p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="banner reveal">
+          <h2 class="h2" style="font-size:26px;">Direct</h2>
+          <p class="sub" style="margin-top:10px;">
+            <strong>Email:</strong> <a href="mailto:info@stratusmarketingllc.com">info@stratusmarketingllc.com</a><br/>
+            <strong>Phone:</strong> <a href="tel:+13054141772">(305) 414-1772</a>
+          </p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:info@stratusmarketingllc.com">Email Us</a>
+            <a class="btn" href="tel:+13054141772">Call</a>
+            <a class="btn" href="book.html">Book Now</a>
+          </div>
+
+          <div style="margin-top:16px;">
+            <p style="margin:0;color:var(--muted);font-weight:900;">Prefer to learn first?</p>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn" href="why.html">Why Ads</a>
+              <a class="btn" href="how.html">How It Works</a>
             </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-                <p class="text-base text-gray-400">
-                    &copy; 2025 Stratus Marketing. All rights reserved.
-                </p>
-            </div>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        feather.replace();
+        <div class="card reveal">
+          <h3>Quick message</h3>
+          <form class="form" action="mailto:info@stratusmarketingllc.com" method="post" enctype="text/plain">
+            <div>
+              <div class="label">Name</div>
+              <input class="input" name="name" placeholder="Your name" required>
+            </div>
+            <div>
+              <div class="label">Email</div>
+              <input class="input" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div>
+              <div class="label">Message</div>
+              <textarea class="input" name="message" rows="4" placeholder="What are you trying to improve?"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+          <p style="margin-top:10px; color:var(--muted); font-size:13px;">
+            (This opens your email app. If you want a real form endpoint, we’ll wire Formspree.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-        // Form submission handling
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© <span id="year"></span> Stratus Marketing LLC</div>
+    <div><a href="privacypolicy.html">Privacy</a></div>
+  </div>
+</footer>
 
-            // Create FormData
-            const formData = new FormData(this);
-
-            // Debug: Log form data to console
-            const formDataObj = {};
-            for (const [key, value] of formData.entries()) {
-                formDataObj[key] = value;
-            }
-            console.log('Form Data:', formDataObj);
-
-            // Submit to Google Apps Script
-            fetch('https://script.google.com/macros/s/AKfycbxNQVPr2XscMwddre2tzYqNHaUSpXSAUbeRu4WfOzC1vmVpANgwjVaQGLZIh-_GU6BS/exec', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            })
-                .then(() => {
-                    alert('Message sent successfully!');
-                    this.reset();
-                })
-                .catch(error => {
-                    alert('Error: ' + error.message);
-                });
-        });
-    </script>
+<script src="app.js"></script>
 </body>
 </html>
-
-
-

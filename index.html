@@ -1,246 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stratus Marketing | Elevate Your Brand</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'stratus-blue': {
-                            600: '#004AAD',
-                            700: '#00387D',
-                            500: '#3366BB',
-                            100: '#E6F0FA',
-                            50: '#F5FAFF',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .dropdown:hover .dropdown-menu,
-        .dropdown-menu:hover {
-            display: block !important;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #004AAD 0%, #3366BB 100%);
-        }
-        .vanta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stratus Marketing | Flight School Marketing & Lead Generation</title>
+  <meta name="description" content="Stratus Marketing helps flight schools generate qualified leads using Meta Ads, Google Ads, and a proven follow-up system that drives booked calls." />
+  <link rel="canonical" href="https://stratusmarketingllc.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stratus Marketing" />
+  <meta property="og:title" content="Stratus Marketing | Flight School Marketing & Lead Generation" />
+  <meta property="og:description" content="Flight school marketing that drives booked calls with paid ads + follow-up systems." />
+  <meta property="og:url" content="https://stratusmarketingllc.com/" />
+  <meta property="og:image" content="https://stratusmarketingllc.com/assets/og.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stratus Marketing | Flight School Marketing & Lead Generation" />
+  <meta name="twitter:description" content="Flight school marketing that drives booked calls with paid ads + follow-up systems." />
+  <meta name="twitter:image" content="https://stratusmarketingllc.com/assets/og.jpg" />
+
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Stratus Marketing",
+    "url":"https://stratusmarketingllc.com/",
+    "logo":"https://stratusmarketingllc.com/assets/logo.svg",
+    "email":"info@stratusmarketingllc.com",
+    "telephone":"+13054141772"
+  }
+  </script>
 </head>
-<body class="font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <img src="logo.png" alt="Stratus Marketing Logo" class="h-10 w-auto">
-                    </div>
-                </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="index.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-					<a href="services.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Services</a>
-                    <a href="results.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Results</a>
-                    <a href="about.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">About</a>
-                    <a href="contact.html" class="text-gray-900 hover:text-stratus-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
-					<a href="contact.html" 
-					class="ml-4 bg-stratus-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-stratus-blue-700 transition duration-150 ease-in-out inline-block">
-					Get Started
-					</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md text-gray-700 hover:text-stratus-blue-600 hover:bg-gray-100 focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section with Interactive Photo on the Right -->
-    <div class="relative overflow-hidden hero-gradient">
-        <div class="vanta-bg" id="vanta-bg"></div>
-        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 relative z-10">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <!-- Left: Text Content -->
-                <div>
-                    <!-- Mobile image (shown only on small screens) -->
-                    <img src="page1.png" alt="Stratus Marketing Hero" class="rounded-lg shadow-xl mb-8 lg:hidden w-full">
+<!-- NAV -->
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Stratus Marketing homepage">
+      <img class="logo-img" src="assets/logo.svg" alt="Stratus Marketing logo">
+    </a>
 
-                    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Elevate Your Brand Above the Clouds
-                    </h1>
-                    <p class="mt-6 max-w-3xl text-xl text-stratus-blue-100">
-                        Business Growth Experts based in Miami, we craft marketing strategies that help businesses soar with Meta Ads, lead generation, and branding — dedicated to scaling your pipeline.
-                    </p>
-                    <div class="mt-10 sm:flex sm:justify-start">
-                        <div class="rounded-md shadow">
-                            <a href="contact.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-stratus-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                                Get Started
-                            </a>
-                        </div>
-                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                            <a href="results.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
-                                See Our Results
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Interactive Photo (hidden on mobile) -->
-                <div class="hidden lg:block mt-10 lg:mt-0">
-                    <img src="page1.png" 
-                         alt="Stratus Marketing - Elevate Your Brand" 
-                         class="rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out">
-                </div>
-            </div>
-        </div>
+    <div class="navlinks" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Results</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Services Section -->
-    <div class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-stratus-blue-600 font-semibold tracking-wide uppercase">Services</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    What We Offer
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    Proven strategy that brings in warm leads for your business.
-                </p>
-            </div>
-            <div class="mt-10">
-                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                    <div class="relative">
-                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-500 text-white">
-                            <i data-feather="target"></i>
-                        </div>
-                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Digital Advertising</p>
-                        <p class="mt-2 ml-16 text-base text-gray-500">
-                            Precision-targeted campaigns across social media.
-                        </p>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-stratus-blue-500 text-white">
-                            <i data-feather="share-2"></i>
-                        </div>
-                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Social Media Management</p>
-                        <p class="mt-2 ml-16 text-base text-gray-500">
-                            Strategic content creation and community engagement to build your brand's social presence around trends.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="nav-actions">
+      <button type="button" class="btn" onclick="toggleTheme()">🌓 Theme</button>
+      <a class="btn btn-primary" href="book.html">Book Now</a>
+      <button type="button" class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰ Menu</button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="container inner">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Results</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="why.html">Why Ads</a>
+      <a href="how.html">How It Works</a>
+      <a href="book.html">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  </div>
+
+  <div class="container">
+    <div class="pill reveal">☁️ Flight School Growth • Paid Ads + Follow-Up</div>
+
+    <h1 class="h1 reveal" style="margin-top:14px;">
+      If your flight school isn’t running paid ads,<br/>you’re leaving enrollments on the runway.
+    </h1>
+
+    <p class="sub reveal">
+      Stratus Marketing builds a predictable pipeline using Meta + Google Ads and a follow-up system that turns inquiries into booked calls.
+    </p>
+
+    <div class="reveal" style="display:flex; gap:12px; margin-top:22px; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="book.html">Book a Call</a>
+      <a class="btn" href="services.html">See Services</a>
+      <a class="btn" href="results.html">Watch Testimonials</a>
     </div>
 
-    <!-- Testimonial Section -->
-    <div class="bg-gray-50">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                <span class="block">Ready to take your marketing to new heights?</span>
-                <span class="block text-stratus-blue-600">Let's create something amazing together. I know you'll love the results.</span>
-            </h2>
-            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-                <div class="inline-flex rounded-md shadow">
-                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-stratus-blue-600 hover:bg-stratus-blue-700">
-                        Get in touch
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="split reveal">
+      <div class="pain">
+        <h3 style="margin:0 0 8px;">The Hurt (no ads)</h3>
+        <ul>
+          <li>Slow months feel random</li>
+          <li>Competitors show up first</li>
+          <li>Leads go cold before you respond</li>
+        </ul>
+      </div>
+      <div class="relief">
+        <h3 style="margin:0 0 8px;">The Relief (Stratus system)</h3>
+        <ul>
+          <li>Consistent demand + booked calls</li>
+          <li>Message flow that increases conversion</li>
+          <li>Optimization based on lead quality</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</header>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Navigation</h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="index.html" class="text-base text-gray-300 hover:text-white">Home</a><br>
-                        <a href="services.html" class="text-base text-gray-300 hover:text-white">Services</a><br>
-                        <a href="results.html" class="text-base text-gray-300 hover:text-white">Results</a><br>
-                        <a href="about.html" class="text-base text-gray-300 hover:text-white">About</a><br>
-                        <a href="contact.html" class="text-base text-gray-300 hover:text-white">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="#" class="text-base text-gray-300 hover:text-white">Digital Advertising</a><br>
-                        <a href="#" class="text-base text-gray-300 hover:text-white">Social Media Management</a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
-                    <div class="mt-4 space-y-4">
-                        <a href="privacypolicy.html" class="text-base text-gray-300 hover:text-white">Privacy Policy</a><br>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contact</h3>
-                    <div class="mt-4 space-y-4">
-                        <p class="text-base text-gray-300">info@stratusmarketingllc.com</p>
-                        <p class="text-base text-gray-300">305-414-1772</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Follow Us</h3>
-                    <div class="mt-4 flex space-x-6">
-                        <a href="https://www.facebook.com/stratus.marketing/" class="text-gray-400 hover:text-white">
-                            <i data-feather="facebook" class="h-6 w-6"></i>
-                        </a>
-                        <a href="https://www.instagram.com/stratus.marketing/" class="text-gray-400 hover:text-white">
-                            <i data-feather="instagram" class="h-6 w-6"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-                <p class="text-base text-gray-400">
-                    &copy; 2025 Stratus Marketing. All rights reserved.
-                </p>
-            </div>
+<main>
+  <!-- Why / How -->
+  <section class="section">
+    <div class="container">
+      <div class="banner reveal">
+        <h2 class="h2">The “Why” and the “How” (your unfair advantage)</h2>
+        <p class="sub" style="margin-top:10px;">
+          Flight school marketing is risk-to-reward when done right: you control the message, the audience, and the follow-up speed.
+          Here’s why ads are non-negotiable — and exactly how we make them work.
+        </p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="why.html">Read the Why</a>
+          <a class="btn" href="how.html">See the How</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-    <script>
-        feather.replace();
-        VANTA.GLOBE({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x004AAD,
-            backgroundColor: 0x00000000,
-            size: 0.8
-        });
-    </script>
+  <!-- Value section (less bland) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="h2 reveal">Paid ads aren’t “expensive.” Staying invisible is.</h2>
+      <p class="sub reveal" style="margin-top:10px;">
+        When your competitors are buying attention, your organic posts alone get drowned out.
+        Paid advertising is how you consistently reach the right prospects and turn interest into scheduled calls.
+      </p>
+
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card reveal">
+          <h3>Meta Ads (Facebook/Instagram)</h3>
+          <p>Reach the exact audience you want and generate inquiry volume fast.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Google Ads (High Intent)</h3>
+          <p>Capture people actively searching for flight training and enrollment.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Follow-Up System</h3>
+          <p>Speed + structure that increases show-up and conversion.</p>
+        </div>
+      </div>
+
+      <div class="banner reveal" style="margin-top:18px;">
+        <h3 style="margin:0 0 8px;">Ready to turn attention into enrollments?</h3>
+        <p style="margin:0; color:var(--muted);">Book a call or message us — we’ll map the fastest route to more booked appointments.</p>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="book.html">Book Now</a>
+          <a class="btn" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© <span id="year"></span> Stratus Marketing LLC</div>
+    <div>
+      <a href="mailto:info@stratusmarketingllc.com">info@stratusmarketingllc.com</a> •
+      <a href="tel:+13054141772">(305) 414-1772</a> •
+      <a href="privacypolicy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
-
-
-
-
