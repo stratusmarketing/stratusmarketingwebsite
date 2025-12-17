@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^stratusmarketingllc\.com [NC]
-RewriteRule ^(.*)$ http://www.stratusmarketingllc.com/$1 [L,R=301]
