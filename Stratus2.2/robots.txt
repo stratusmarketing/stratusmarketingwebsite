@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stratusmarketingllc.com/sitemap.xml

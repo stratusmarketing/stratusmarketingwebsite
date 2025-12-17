@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Stratus Marketing</title>
+  <meta name="description" content="Contact Stratus Marketing for flight school marketing, lead generation, and paid ads. Email, call, or send a message to get started." />
+  <link rel="canonical" href="https://stratusmarketingllc.com/contact.html" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo.svg" alt="Stratus Marketing logo"></a>
+    <div class="navlinks">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="btn" onclick="toggleTheme()">🌓 Theme</button>
+      <a class="btn btn-primary" href="book.html">Book Now</a>
+      <button type="button" class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="container inner">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="why.html">Why Ads</a><a href="how.html">How It Works</a><a href="book.html">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="pill reveal">☁️ Contact</div>
+    <h1 class="h1 reveal" style="margin-top:14px;">Let’s build your pipeline.</h1>
+    <p class="sub reveal">Fastest response? Text/call/email — or send a message below.</p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="banner reveal">
+          <h2 class="h2" style="font-size:26px;">Direct</h2>
+          <p class="sub" style="margin-top:10px;">
+            <strong>Email:</strong> <a href="mailto:info@stratusmarketingllc.com">info@stratusmarketingllc.com</a><br/>
+            <strong>Phone:</strong> <a href="tel:+13054141772">(305) 414-1772</a>
+          </p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:info@stratusmarketingllc.com">Email Us</a>
+            <a class="btn" href="tel:+13054141772">Call</a>
+            <a class="btn" href="book.html">Book Now</a>
+          </div>
+
+          <div style="margin-top:16px;">
+            <p style="margin:0;color:var(--muted);font-weight:900;">Prefer to learn first?</p>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn" href="why.html">Why Ads</a>
+              <a class="btn" href="how.html">How It Works</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Quick message</h3>
+          <form class="form" action="mailto:info@stratusmarketingllc.com" method="post" enctype="text/plain">
+            <div>
+              <div class="label">Name</div>
+              <input class="input" name="name" placeholder="Your name" required>
+            </div>
+            <div>
+              <div class="label">Email</div>
+              <input class="input" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div>
+              <div class="label">Message</div>
+              <textarea class="input" name="message" rows="4" placeholder="What are you trying to improve?"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+          <p style="margin-top:10px; color:var(--muted); font-size:13px;">
+            (This opens your email app. If you want a real form endpoint, we’ll wire Formspree.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>© <span id="year"></span> Stratus Marketing LLC</div>
+    <div><a href="privacypolicy.html">Privacy</a></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
