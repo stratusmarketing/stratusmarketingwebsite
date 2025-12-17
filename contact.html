@@ -65,7 +65,7 @@
 
         <div class="card reveal">
           <h3>Quick message</h3>
-          <form class="form" action="mailto:info@stratusmarketingllc.com" method="post" enctype="text/plain">
+          <form class="form" action="https://script.google.com/macros/s/AKfycbwZTyPQoGMtnNrBnrFxaB5xupNVOCu_RmBIuzQXh6Ola0lZ0A2z3bPgHyZh8RhkzGAq/exec" method="post" enctype="text/plain">
             <div>
               <div class="label">Name</div>
               <input class="input" name="name" placeholder="Your name" required>
@@ -81,7 +81,7 @@
             <button class="btn btn-primary" type="submit">Send</button>
           </form>
           <p style="margin-top:10px; color:var(--muted); font-size:13px;">
-            (This opens your email app. If you want a real form endpoint, we’ll wire Formspree.)
+            (This sends an email to us)
           </p>
         </div>
       </div>
@@ -97,5 +97,16 @@
 </footer>
 
 <script src="app.js"></script>
+
+<script>
+document.querySelector('form').addEventListener('submit', async (e) => {
+  e.preventDefault();                       // stop normal submit
+  const body = new FormData(e.target);
+  await fetch(e.target.action, {method:'POST', body});
+  alert('Thanks! We received your message.');
+  e.target.reset();
+});
+</script>
 </body>
 </html>
+
