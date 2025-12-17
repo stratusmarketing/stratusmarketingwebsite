@@ -1,8 +1,9 @@
-// Apply theme ASAP
 (function initTheme(){
   const saved = localStorage.getItem("theme");
   if (saved === "light" || saved === "dark") {
     document.documentElement.setAttribute("data-theme", saved);
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
   }
 })();
 
@@ -14,14 +15,12 @@ function toggleTheme(){
   localStorage.setItem("theme", next);
 }
 
-// Mobile menu
 function toggleMenu(){
   const menu = document.getElementById("mobileMenu");
   if (!menu) return;
   menu.classList.toggle("open");
 }
 
-// Reveal animations + year
 window.addEventListener("DOMContentLoaded", () => {
   const els = document.querySelectorAll(".reveal");
   const io = new IntersectionObserver((entries)=>{
@@ -37,7 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  // Close mobile menu when clicking a link (mobile)
   const menu = document.getElementById("mobileMenu");
   if (menu) {
     menu.querySelectorAll("a").forEach(a=>{

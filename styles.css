@@ -1,16 +1,22 @@
 /* =========================
-   Stratus Marketing REV (Mobile-first + SEO-friendly)
+   Stratus Marketing REV4
+   FULL styles.css (copy/paste)
+   Fixes: light-mode blobs visible + smooth left/right drift
+   Includes: logo swap, mobile menu, reveal animations, cards, forms
    ========================= */
 
+/* -------------------------
+   Theme Tokens
+------------------------- */
 :root{
-  --brand: #004AAD;     /* logo blue */
-  --brand2:#0B66FF;     /* more vibrant for light mode + gradients */
-  --brand3:#7CC4FF;     /* glow tint */
+  --brand: #004AAD;
+  --brand2:#0B66FF;
+  --brand3:#7CC4FF;
 
   /* Dark defaults */
   --bg: #070A12;
   --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.68);
+  --muted: rgba(255,255,255,0.70);
   --panel: rgba(255,255,255,0.06);
   --panel2: rgba(255,255,255,0.10);
   --border: rgba(255,255,255,0.10);
@@ -19,28 +25,35 @@
 
   --ring: color-mix(in srgb, var(--brand2) 28%, transparent);
 
-  /* Buttons */
-  --btnText: #061012;          /* dark mode primary button text */
   --btnTextOnBrand: #061012;
   --btnGhostText: var(--text);
+
+  /* Hero blobs */
+  --blobOpacity: .30;  /* how visible blobs are */
+  --blobMix: .58;      /* how colorful blobs are */
 }
 
 html[data-theme="light"]{
   --bg: #F6FAFF;
   --text: rgba(4,10,22,0.92);
   --muted: rgba(4,10,22,0.62);
-  --panel: rgba(255,255,255,0.72);
-  --panel2: rgba(255,255,255,0.95);
+  --panel: rgba(255,255,255,0.74);
+  --panel2: rgba(255,255,255,0.96);
   --border: rgba(4,10,22,0.10);
   --shadow: 0 18px 55px rgba(2,10,30,.12);
   --ring: color-mix(in srgb, var(--brand2) 22%, transparent);
 
-  /* Fix: blue buttons readable in light mode */
-  --btnText: #ffffff;
   --btnTextOnBrand: #ffffff;
   --btnGhostText: rgba(4,10,22,0.92);
+
+  /* Make blobs clearly visible on white */
+  --blobOpacity: .42;
+  --blobMix: .95;
 }
 
+/* -------------------------
+   Base / Layout
+------------------------- */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
@@ -50,10 +63,11 @@ body{
     radial-gradient(1200px 800px at 20% 10%, color-mix(in srgb, var(--brand2) 20%, transparent), transparent 55%),
     radial-gradient(900px 600px at 80% 0%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 55%),
     var(--bg);
-  line-height: 1.5;
+  line-height: 1.55;
 }
+
 a{color:inherit}
-img{max-width:100%;height:auto}
+img{max-width:100%;height:auto;display:block}
 .container{width:min(1120px, 92%); margin:0 auto;}
 .section{padding: 64px 0;}
 .grid{display:grid; gap:18px;}
@@ -61,29 +75,43 @@ img{max-width:100%;height:auto}
 .grid-3{grid-template-columns: repeat(3, minmax(0,1fr));}
 @media (max-width: 940px){ .grid-2,.grid-3{grid-template-columns:1fr;} }
 
-/* =========================
-   Animations (back!)
-   ========================= */
+/* -------------------------
+   Reveal animation on scroll
+------------------------- */
 .reveal{
   opacity:0;
   transform: translateY(18px);
   filter: blur(7px);
   transition: opacity .7s ease, transform .7s ease, filter .7s ease;
 }
-.reveal--in{opacity:1; transform: translateY(0); filter: blur(0);}
+.reveal--in{
+  opacity:1;
+  transform: translateY(0);
+  filter: blur(0);
+}
 
-@keyframes floaty{
+/* -------------------------
+   Keyframes
+------------------------- */
+@keyframes floatGlow{
+  0%,100%{transform: translate(0,0) scale(1);}
+  50%{transform: translate(2%,-2%) scale(1.04);}
+}
+
+/* Smooth left/right drift (KEEP THIS) */
+@keyframes driftLR{
+  0%{transform: translateX(-10%)}
+  100%{transform: translateX(10%)}
+}
+
+@keyframes bob{
   0%,100%{transform: translateY(0)}
   50%{transform: translateY(-10px)}
 }
-@keyframes drift{
-  0%{transform: translateX(-8%)}
-  100%{transform: translateX(8%)}
-}
 
-/* =========================
-   Navbar (mobile dropdown)
-   ========================= */
+/* -------------------------
+   Navbar
+------------------------- */
 .nav{
   position: sticky; top:0; z-index:50;
   backdrop-filter: blur(14px);
@@ -103,13 +131,15 @@ img{max-width:100%;height:auto}
   gap:10px;
   text-decoration:none;
 }
-.logo-img{
-  height: 42px; /* bigger without needing taller bar */
-  width:auto;
-  display:block;
-}
+
+/* Logo swap (dark uses white logo; light uses normal logo) */
+.logo{width:auto;}
+.logo--dark{display:block; height:42px;}
+.logo--light{display:none; height:42px;}
+html[data-theme="light"] .logo--dark{display:none;}
+html[data-theme="light"] .logo--light{display:block;}
 @media (max-width: 520px){
-  .logo-img{height: 40px;}
+  .logo--dark,.logo--light{height:40px;}
 }
 
 .navlinks{
@@ -131,12 +161,7 @@ img{max-width:100%;height:auto}
   background: color-mix(in srgb, var(--panel) 80%, transparent);
 }
 
-.nav-actions{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  flex-wrap:wrap;
-}
+.nav-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
 
 .hamburger{
   display:none;
@@ -145,16 +170,14 @@ img{max-width:100%;height:auto}
   color: var(--text);
   border-radius: 12px;
   padding: 10px 12px;
-  font-weight: 1000;
+  font-weight: 1100;
   cursor:pointer;
 }
-
 @media (max-width: 860px){
   .navlinks{display:none;}
   .hamburger{display:inline-flex;}
 }
 
-/* Mobile menu panel */
 .mobile-menu{
   display:none;
   border-top: 1px solid var(--border);
@@ -179,9 +202,9 @@ img{max-width:100%;height:auto}
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
 }
 
-/* =========================
-   Typography / Hero
-   ========================= */
+/* -------------------------
+   Hero
+------------------------- */
 .hero{
   position:relative;
   overflow:hidden;
@@ -192,34 +215,84 @@ img{max-width:100%;height:auto}
   position:absolute;
   inset:-35%;
   background:
-    radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--brand2) 34%, transparent), transparent 46%),
-    radial-gradient(circle at 80% 28%, color-mix(in srgb, var(--brand) 26%, transparent), transparent 48%),
+    radial-gradient(circle at 22% 30%, color-mix(in srgb, var(--brand2) 30%, transparent), transparent 46%),
+    radial-gradient(circle at 82% 28%, color-mix(in srgb, var(--brand) 24%, transparent), transparent 48%),
     radial-gradient(circle at 50% 82%, rgba(255,255,255,.08), transparent 55%);
-  animation: floaty 7.5s ease-in-out infinite;
+  animation: floatGlow 10s ease-in-out infinite;
   pointer-events:none;
 }
 .hero > *{position:relative;}
+
+.hero-ornaments{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity: var(--blobOpacity);
+}
+
+/* Blobs / Orbs (VISIBLE ON LIGHT MODE) */
+.orb{
+  position:absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  opacity: 1;
+
+  /* normal blend makes it visible on light backgrounds */
+  mix-blend-mode: normal;
+
+  /* glow */
+  filter: blur(26px);
+
+  background:
+    radial-gradient(circle at 30% 30%,
+      color-mix(in srgb, var(--brand2) calc(var(--blobMix)*100%), transparent),
+      transparent 58%),
+    radial-gradient(circle at 60% 70%,
+      color-mix(in srgb, var(--brand) 72%, transparent),
+      transparent 62%);
+
+  /* Smooth left/right drift */
+  animation: driftLR 14s ease-in-out infinite alternate;
+}
+
+.orb.o1{top:-20%; left:-14%;}
+.orb.o2{
+  top:10%; right:-18%;
+  width:520px;height:520px;
+  animation-duration: 18s;
+}
+.orb.o3{
+  bottom:-22%; left:18%;
+  width:460px;height:460px;
+  animation-duration: 16s;
+}
+
+/* Extra pop on light mode */
+html[data-theme="light"] .orb{
+  filter: blur(22px);
+}
 
 .clouds{
   position:absolute;
   inset:0;
   pointer-events:none;
-  opacity: .25;
-  filter: blur(0px);
+  opacity: .22;
 }
 .cloud{
   position:absolute;
   width: 340px;
   height: 120px;
   border-radius: 999px;
-  background: radial-gradient(circle at 25% 40%, rgba(255,255,255,.35), rgba(255,255,255,0) 62%),
-              radial-gradient(circle at 55% 50%, rgba(255,255,255,.25), rgba(255,255,255,0) 62%),
-              radial-gradient(circle at 75% 40%, rgba(255,255,255,.22), rgba(255,255,255,0) 62%);
-  animation: drift 14s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle at 25% 40%, rgba(255,255,255,.34), rgba(255,255,255,0) 62%),
+    radial-gradient(circle at 55% 50%, rgba(255,255,255,.22), rgba(255,255,255,0) 62%),
+    radial-gradient(circle at 75% 40%, rgba(255,255,255,.20), rgba(255,255,255,0) 62%);
+  animation: bob 7.5s ease-in-out infinite;
 }
 .cloud.c1{top:16%; left:-6%;}
-.cloud.c2{top:40%; right:-10%; width:420px;}
-.cloud.c3{bottom:12%; left:15%; width:380px; animation-duration: 18s;}
+.cloud.c2{top:40%; right:-10%; width:420px; animation-delay: .4s;}
+.cloud.c3{bottom:12%; left:15%; width:380px; animation-delay: .8s;}
 
 .pill{
   display:inline-flex;
@@ -248,15 +321,13 @@ img{max-width:100%;height:auto}
 .sub{
   color: var(--muted);
   font-size: 18px;
-  max-width: 68ch;
+  max-width: 72ch;
   margin-top: 14px;
 }
 
-.hr{height:1px;background:var(--border);border:0;margin:18px 0;}
-
-/* =========================
+/* -------------------------
    Buttons / Cards
-   ========================= */
+------------------------- */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -302,13 +373,25 @@ img{max-width:100%;height:auto}
   border-radius: calc(var(--radius) + 6px);
   padding: 18px;
   background: linear-gradient(135deg,
-    color-mix(in srgb, var(--brand) 18%, transparent),
-    color-mix(in srgb, var(--brand2) 14%, transparent)
+    color-mix(in srgb, var(--brand2) 18%, transparent),
+    color-mix(in srgb, var(--brand) 12%, transparent)
   );
   box-shadow: var(--shadow);
 }
 
-/* “Hurt / Relief” split */
+/* -------------------------
+   Problem/Solution blocks
+------------------------- */
+.flow{display:grid; gap:14px; margin-top:18px;}
+.flow .row{
+  border:1px solid var(--border);
+  border-radius: 18px;
+  padding:16px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+}
+.flow .row strong{display:block; font-weight:1200;}
+.flow .row p{margin:6px 0 0; color:var(--muted);}
+
 .split{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -316,6 +399,7 @@ img{max-width:100%;height:auto}
   margin-top: 18px;
 }
 @media (max-width: 940px){ .split{grid-template-columns:1fr;} }
+
 .pain{
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -330,9 +414,9 @@ img{max-width:100%;height:auto}
 }
 .pain ul, .relief ul{margin:10px 0 0 18px; color:var(--muted);}
 
-/* =========================
-   Services page visuals
-   ========================= */
+/* -------------------------
+   Services layout
+------------------------- */
 .feature{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
@@ -340,11 +424,7 @@ img{max-width:100%;height:auto}
   align-items:stretch;
 }
 @media (max-width: 940px){ .feature{grid-template-columns:1fr;} }
-
-.stack{
-  display:grid;
-  gap:12px;
-}
+.stack{display:grid; gap:12px;}
 .stack .item{
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--panel) 88%, transparent);
@@ -353,9 +433,9 @@ img{max-width:100%;height:auto}
 }
 .stack .item strong{display:block}
 
-/* =========================
-   Results grid: side-by-side
-   ========================= */
+/* -------------------------
+   Results grid
+------------------------- */
 .video-grid{
   display:grid;
   gap:18px;
@@ -367,7 +447,6 @@ img{max-width:100%;height:auto}
 @media (max-width: 620px){
   .video-grid{grid-template-columns: 1fr;}
 }
-
 .video-card{
   border-radius: 18px;
   overflow:hidden;
@@ -390,9 +469,9 @@ img{max-width:100%;height:auto}
 .video-meta strong{display:block; font-weight:1100;}
 .video-meta span{color: var(--muted); font-weight:900; font-size:13px;}
 
-/* =========================
-   About (less boxy)
-   ========================= */
+/* -------------------------
+   About
+------------------------- */
 .about-hero{
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 8px);
@@ -402,25 +481,17 @@ img{max-width:100%;height:auto}
     color-mix(in srgb, var(--brand) 12%, transparent)
   );
 }
-.about-points{
-  display:grid;
-  gap:12px;
-  margin-top: 14px;
-}
-.about-point{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-}
+.about-points{display:grid; gap:12px; margin-top: 14px;}
+.about-point{display:flex; gap:10px; align-items:flex-start;}
 .dot{
   width:10px;height:10px;border-radius:999px;
   margin-top:7px;
   background: linear-gradient(135deg, var(--brand2), var(--brand));
 }
 
-/* =========================
-   Contact: denser, less empty
-   ========================= */
+/* -------------------------
+   Contact
+------------------------- */
 .contact-wrap{
   display:grid;
   grid-template-columns: .9fr 1.1fr;
@@ -428,7 +499,9 @@ img{max-width:100%;height:auto}
 }
 @media (max-width: 940px){ .contact-wrap{grid-template-columns:1fr;} }
 
-/* Forms */
+/* -------------------------
+   Forms
+------------------------- */
 .form{display:grid; gap:12px;}
 .label{font-size: 13px; color: var(--muted); font-weight: 1100;}
 .input{
@@ -446,7 +519,9 @@ img{max-width:100%;height:auto}
   box-shadow: 0 0 0 4px var(--ring);
 }
 
-/* Footer */
+/* -------------------------
+   Footer
+------------------------- */
 .footer{
   padding: 34px 0;
   border-top: 1px solid var(--border);
@@ -459,12 +534,29 @@ img{max-width:100%;height:auto}
   gap:14px;
   flex-wrap:wrap;
 }
-
-/* Legal page readability */
-.prose{
-  max-width: 78ch;
-  margin: 0 auto;
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
+
+.footer-socials a img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+/* -------------------------
+   Legal / Prose
+------------------------- */
+.prose{max-width: 78ch; margin: 0 auto;}
 .prose h2{margin: 26px 0 10px;}
 .prose p, .prose li{color: var(--muted);}
 .prose ul{margin: 10px 0 10px 18px;}

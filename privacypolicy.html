@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Stratus Marketing</title>
-  <meta name="description" content="Privacy Policy for Stratus Marketing." />
+  <meta name="description" content="Privacy Policy for Stratus Marketing LLC." />
   <link rel="canonical" href="https://stratusmarketingllc.com/privacypolicy.html" />
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,25 +12,48 @@
 
 <div class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="index.html"><img class="logo-img" src="assets/logo.svg" alt="Stratus Marketing logo"></a>
+    <a class="brand" href="index.html" aria-label="Stratus Marketing homepage">
+      <img class="logo logo--dark" src="assets/logo-white.svg" alt="Stratus Marketing logo (white)">
+      <img class="logo logo--light" src="assets/logo.svg" alt="Stratus Marketing logo">
+    </a>
+
     <div class="navlinks">
-      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Testimonials</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
+
     <div class="nav-actions">
       <button type="button" class="btn" onclick="toggleTheme()">🌓 Theme</button>
-      <a class="btn btn-primary" href="book.html">Book Now</a>
-      <button type="button" class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+      <a class="btn btn-primary" href="https://calendly.com/stratusmarketingllc/30min" target="_blank" rel="noopener">Book Now</a>
+      <button type="button" class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰ Menu</button>
     </div>
   </div>
+
   <div id="mobileMenu" class="mobile-menu">
     <div class="container inner">
-      <a href="index.html">Home</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-      <a href="why.html">Why Ads</a><a href="how.html">How It Works</a><a href="book.html">Book Now</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Testimonials</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="why.html">Why Ads</a>
+      <a href="how.html">How It Works</a>
+      <a href="https://calendly.com/stratusmarketingllc/30min" target="_blank" rel="noopener">Book Now</a>
     </div>
   </div>
 </div>
 
 <header class="hero">
+  <div class="hero-ornaments" aria-hidden="true">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  </div>
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  </div>
+
   <div class="container">
     <div class="pill reveal">☁️ Legal</div>
     <h1 class="h1 reveal" style="margin-top:14px;">Privacy Policy</h1>
@@ -41,56 +64,53 @@
 <main>
   <section class="section">
     <div class="container">
-      <div class="banner reveal">
-        <div class="prose">
-          <h2>Information We Collect</h2>
-          <p>We collect information that you provide to us directly, such as when you fill out forms on our website, communicate with us, or use our services. This may include:</p>
-          <ul>
-            <li>Personal identification information (Name, email address, phone number, etc.)</li>
-            <li>Business information (Company name, job title, etc.)</li>
-            <li>Payment information (for service purchases)</li>
-            <li>Any other information you choose to provide</li>
-          </ul>
+      <div class="card reveal prose">
+        <h2>Information We Collect</h2>
+        <p>We collect information that you provide to us directly, such as when you fill out forms on our website, communicate with us, or use our services. This may include:</p>
+        <ul>
+          <li>Personal identification information (Name, email address, phone number, etc.)</li>
+          <li>Business information (Company name, job title, etc.)</li>
+          <li>Payment information (for service purchases)</li>
+          <li>Any other information you choose to provide</li>
+        </ul>
 
-          <h2>How We Use Your Information</h2>
-          <p>We use the information we collect for various purposes, including:</p>
-          <ul>
-            <li>To provide and maintain our services</li>
-            <li>To notify you about changes to our services</li>
-            <li>To provide customer support</li>
-            <li>To gather analysis or valuable information so that we can improve our services</li>
-            <li>To monitor the usage of our services</li>
-            <li>To detect, prevent and address technical issues</li>
-          </ul>
+        <h2>How We Use Your Information</h2>
+        <p>We use the information we collect for various purposes, including:</p>
+        <ul>
+          <li>To provide and maintain our services</li>
+          <li>To notify you about changes to our services</li>
+          <li>To provide customer support</li>
+          <li>To gather analysis or valuable information so that we can improve our services</li>
+          <li>To monitor the usage of our services</li>
+          <li>To detect, prevent and address technical issues</li>
+        </ul>
 
-          <h2>Information Sharing and Disclosure</h2>
-          <p>We do not share your personal information with third parties except as described in this policy. We may disclose your personal information:</p>
-          <ul>
-            <li>To service providers who perform services on our behalf</li>
-            <li>To comply with legal obligations</li>
-            <li>To protect and defend our rights and property</li>
-            <li>To prevent or investigate possible wrongdoing in connection with our services</li>
-            <li>To protect the personal safety of users of our services or the public</li>
-          </ul>
+        <h2>Information Sharing and Disclosure</h2>
+        <p>We do not share your personal information with third parties except as described in this policy. We may disclose your personal information:</p>
+        <ul>
+          <li>To service providers who perform services on our behalf</li>
+          <li>To comply with legal obligations</li>
+          <li>To protect and defend our rights and property</li>
+          <li>To prevent or investigate possible wrongdoing in connection with our services</li>
+          <li>To protect the personal safety of users of our services or the public</li>
+        </ul>
 
-          <div class="callout">
-            <p style="margin:0; font-weight:1000;">
-              No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
-              All other categories exclude text messaging originator opt-in data and consent;
-              this information will not be shared with any third parties.
-            </p>
-          </div>
-
-          <h2>Cookies and Tracking Technologies</h2>
-          <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
-
-          <h2>Data Security</h2>
-          <p>We implement appropriate technical and organizational measures to protect the security of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
-
-          <h2>Changes to This Privacy Policy</h2>
-          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-
+        <div class="callout">
+          <p style="margin:0; font-weight:900; color:var(--text);">
+            No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+            All other categories exclude text messaging originator opt-in data and consent;
+            this information will not be shared with any third parties.
+          </p>
         </div>
+
+        <h2>Cookies and Tracking Technologies</h2>
+        <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
+
+        <h2>Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to protect the security of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
       </div>
     </div>
   </section>
@@ -98,13 +118,11 @@
 
 <footer class="footer">
   <div class="container foot-inner">
-    <div>© <span id="year"></span> Stratus Marketing LLC. All rights reserved.</div>
+    <div>© <span id="year"></span> Stratus Marketing LLC</div>
     <div>
-      <a href="index.html">Home</a> •
-      <a href="services.html">Services</a> •
-      <a href="results.html">Results</a> •
-      <a href="about.html">About</a> •
-      <a href="contact.html">Contact</a>
+      <a href="mailto:info@stratusmarketingllc.com">info@stratusmarketingllc.com</a> •
+      <a href="tel:+13054141772">(305) 414-1772</a> •
+      <a href="https://calendly.com/stratusmarketingllc/30min" target="_blank" rel="noopener">Book</a>
     </div>
   </div>
 </footer>
