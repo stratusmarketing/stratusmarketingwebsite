@@ -102,12 +102,13 @@
 document.querySelector('form').addEventListener('submit', async (e) => {
   e.preventDefault();                       // stop normal submit
   const body = new FormData(e.target);
-  await fetch(e.target.action, {method:'POST', body});
-  alert('Thanks! We received your message.');
-  e.target.reset();
+  await fetch('https://script.google.com/macros/s/AKfycbxgrwHMbaw15IBGEsILM1PKKDPVzePjopTX0Gxf5mX9Ey91OEQ334Hv2ljgTfVytLYu/exec', {
+  method: 'POST',
+  body: formData
 });
 </script>
 </body>
 </html>
+
 
 
