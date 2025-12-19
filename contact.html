@@ -93,8 +93,8 @@
 
 <div class="card reveal">
           <h3 style="margin:0 0 10px;">Send us a message</h3>
-          <form id="contact-form" class="form" method="POST">
-            <input type="hidden" name="referrer" id="referrer-field">
+          <form id="contact-form" class="form" method="POST">  
+            <input type="hidden" name="referrer" id="referrer-field">  
             <input type="text" name="honeypot" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
             
             <div>
@@ -130,60 +130,57 @@
 </footer>
 
 <script src="app.js"></script>
-<script>
-  // Contact form handler
-  (function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const statusDiv = document.getElementById('form-status');
-    
-    // Set referrer
-    document.getElementById('referrer-field').value = window.location.href;
-    
-    // Your Google Apps Script Web App URL
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgrwHMbaw15IBGEsILM1PKKDPVzePjopTX0Gxf5mX9Ey91OEQ334Hv2ljgTfVytLYu/exec';
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Disable button and show loading
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusDiv.style.display = 'none';
-      
-      const formData = new FormData(form);
-      
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === 'success') {
-          statusDiv.style.display = 'block';
-          statusDiv.style.color = '#10b981';
-          statusDiv.textContent = '✓ Thank you! Your message has been sent. We\'ll be in touch soon.';
-          form.reset();
-          document.getElementById('referrer-field').value = window.location.href;
-        } else {
-          throw new Error(data.error || 'Unknown error');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        statusDiv.style.display = 'block';
-        statusDiv.style.color = '#ef4444';
-        statusDiv.textContent = '✗ Sorry, there was an error sending your message. Please try again or email us directly.';
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      });
-    });
-  })();
+<script>  
+  (function() {  
+    const form = document.getElementById('contact-form');  
+    const submitBtn = document.getElementById('submit-btn');  
+    const statusDiv = document.getElementById('form-status');  
+  
+    document.getElementById('referrer-field').value = window.location.href;  
+  
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5EZFMGqiN8ndmATfFWjT91FBMmjBgHpaKSLxDnWPGfkNdtv_2NYpHSPZJn6XGxE1q3A/exec';  
+  
+    form.addEventListener('submit', function(e) {  
+      e.preventDefault();  
+  
+      submitBtn.disabled = true;  
+      submitBtn.textContent = 'Sending...';  
+      statusDiv.style.display = 'none';  
+  
+      const formData = new FormData(form);  
+  
+      fetch(SCRIPT_URL, {  
+        method: 'POST',  
+        body: formData  
+      })  
+      .then(r => r.json())  
+      .then(data => {  
+        if (data.result === 'success') {  
+          statusDiv.style.display = 'block';  
+          statusDiv.style.color = '#10b981';  
+          statusDiv.textContent = '✓ Thank you! Your message has been sent.';  
+          form.reset();  
+          document.getElementById('referrer-field').value = window.location.href;  
+        } else {  
+          throw new Error(data.error || 'Unknown error');  
+        }  
+      })  
+      .catch(err => {  
+        console.error(err);  
+        statusDiv.style.display = 'block';  
+        statusDiv.style.color = '#ef4444';  
+        statusDiv.textContent = '✗ Sorry, there was an error sending your message. Please try again or email us directly.';  
+      })  
+      .finally(() => {  
+        submitBtn.disabled = false;  
+        submitBtn.textContent = 'Send Message';  
+      });  
+    });  
+  })();  
 </script>
 </body>
 </html>
+
 
 
 
