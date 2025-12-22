@@ -112,15 +112,43 @@
 </main>
 
 <footer class="footer">
-  <div class="container foot-inner">
-    <div>© <span id="year"></span> Stratus Marketing LLC</div>
-    <div><a href="privacypolicy.html">Privacy</a></div>
+  <div class="container foot-inner" 
+       style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; text-align: center;">
+
+    <!-- Left: Company -->
+    <div class="footer-left" style="flex: 1; text-align: left;">
+      © <span id="year"></span> Stratus Marketing LLC
+    </div>
+
+    <!-- Center: Socials -->
+    <div class="footer-socials" style="display: flex; justify-content: center; gap: 10px; flex: 1;">
+      <a href="https://instagram.com/stratus.marketing" target="_blank" aria-label="Instagram">
+        <img src="assets/icons/instagram.svg" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://facebook.com/profile.php?id=61578807435287" target="_blank" aria-label="Facebook">
+        <img src="assets/icons/facebook.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://linkedin.com/company/stratusmarketingllc" target="_blank" aria-label="LinkedIn">
+        <img src="assets/icons/linkedin.svg" alt="LinkedIn" style="height: 24px;">
+      </a>
+    </div>
+
+    <!-- Right: Contact + Links -->
+    <div class="footer-right" style="display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex: 1; text-align: right;">
+      <img src="assets/phone-contact.png" alt="Phone" style="height:32px;">
+      <img src="assets/email-contact.png" alt="Email" style="height:32px;">
+      <a href="privacypolicy.html" style="line-height: 1;">Privacy</a>
+      <a href="https://calendly.com/stratusmarketingllc/30min" target="_blank" rel="noopener noreferrer" style="line-height: 1;">Book</a>
+    </div>
+
   </div>
 </footer>
+
 
 <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
