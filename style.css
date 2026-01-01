@@ -5665,3 +5665,277 @@ html[data-theme="light"] .snapshot-metric-value {
     font-size: 1.85rem;
   }
 }
+/* MOBILE HERO OVERRIDES — optimized for ~430px width phones */
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.6rem 0 2.3rem;        /* reduces blank space above hero */
+  }
+
+  .hero-center-inner {
+    max-width: 100%;
+    margin: 0 1.1rem;               /* tighter horizontal space */
+    padding: 1.3rem 1.2rem 1.6rem;  /* balanced breathing room */
+    border-radius: 28px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;              /* still strong, but fits */
+    line-height: 1.08;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Option: reduce footer height under hero text */
+  .hero-panel-footer {
+    padding-top: 0.6rem;
+  }
+}
+/* ----------------------------------------------------------
+   MOBILE HERO — tuned for iPhone 14/15 Pro Max (~430px)
+   ---------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+
+  /* ensure mobile overrides win */
+  body.mobile .hero,
+  .hero {
+    padding-top: 0.8rem !important;
+    padding-bottom: 1.6rem !important;
+  }
+
+  body.mobile .hero-title,
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.08 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  body.mobile .hero-subtitle,
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  .hero-center-inner {
+    padding: 1rem 1.1rem 1.4rem !important;
+    margin: 0 1.05rem !important;
+    border-radius: 26px !important;
+  }
+
+  .hero-cta-row {
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    margin-top: 0.6rem !important;
+  }
+
+  .hero-cta-row .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+/* ----------------------------------------------------------
+   MOBILE: Pipeline Snapshot (cards + flow bar) – 430px and under
+   ---------------------------------------------------------- */
+@media (max-width: 430px) {
+
+  /* Tighten panel padding */
+  .snapshot-card {
+    padding: 1rem 1rem 1.2rem;
+  }
+
+  /* Header: keep title + tag together, but not so spaced out */
+  .snapshot-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .snapshot-title {
+    font-size: 0.95rem;
+  }
+
+  /* ===== Metrics as small vertical cards (Option C with boxes) ===== */
+  .snapshot-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 0.35rem 0 0.9rem;
+  }
+
+  .snapshot-metric {
+    padding: 0.6rem 0.75rem !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(148, 163, 184, 0.6) !important;
+    background: rgba(15, 23, 42, 0.96) !important; /* dark-mode look */
+  }
+
+  /* Light mode version of those metric cards */
+  html[data-theme="light"] .snapshot-metric {
+    background:
+      radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.12), transparent 55%),
+      rgba(248, 250, 252, 0.98) !important;
+    border-color: rgba(148, 163, 184, 0.35) !important;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10) !important;
+  }
+
+  .snapshot-metric h4 {
+    font-size: 0.82rem;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .snapshot-metric p {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  /* ===== Flow bar ("How the system moves") ===== */
+  .hero-system-pipeline {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;              /* let steps wrap instead of being cut off */
+    border-radius: 18px;
+    padding: 0.4rem 0.6rem;
+    margin-top: 1.1rem;
+  }
+
+  .hero-system-step {
+    font-size: 0.72rem;
+    padding: 0.18rem 0.45rem;
+    margin-top: 0.1rem;
+    white-space: nowrap;
+  }
+}
+/* ----------------------------------------------------------
+   MOBILE: Fix pipeline flow bar (no cut-off, no slider)
+   ---------------------------------------------------------- */
+@media (max-width: 430px) {
+
+  /* Make the pill fit the screen instead of fixed 444px */
+  .hero-system-pipeline.hero-system-pipeline--steps,
+  .hero-system-pipeline {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.9rem auto 0.4rem;
+    border-radius: 999px;
+    padding: 0.35rem 0.55rem;
+    overflow: visible;
+  }
+
+  /* Let the steps wrap, so they don’t get cut off */
+  .hero-system-pipeline--steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.15rem 0.45rem; /* row gap / column gap */
+  }
+
+  /* Step labels: smaller + nowrap so each item is compact */
+  .hero-system-pipeline--step,
+  .hero-system-step {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  /* Optional: dots a bit smaller so they feel balanced */
+  .hero-system-pipeline--step::before,
+  .hero-system-step::before {
+    width: 7px;
+    height: 7px;
+  }
+}
+@media (max-width: 430px) {
+  /* Make the flow pill slightly narrower so its rounded ends aren’t clipped */
+  .hero-system-pipeline {
+    width: calc(100% - 32px) !important;  /* 16px inset on each side */
+    max-width: calc(100% - 32px) !important;
+    margin: 0.9rem auto 0.45rem !important;
+  }
+}
+/* MOBILE: stop clipping the pipeline pill */
+@media (max-width: 430px) {
+  .snapshot-card,
+  .hero-panel-body {
+    overflow: visible !important;
+  }
+
+  .hero-system-pipeline {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.9rem auto 0.45rem !important;
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .hero-system-pipeline--steps {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.4rem;
+  }
+
+  .hero-system-step,
+  .hero-system-pipeline--step {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+}
+/* MOBILE: 310px flow bar */
+@media (max-width: 430px) {
+
+  /* Exact width + centered pill */
+  .hero-system-pipeline {
+    width: 310px !important;
+    max-width: 310px !important;
+    margin: 0.9rem auto 0.45rem !important;
+    border-radius: 999px;
+    padding: 0.35rem 0.6rem !important;
+    overflow: visible !important;
+  }
+
+  /* Layout of the steps inside the pill */
+  .hero-system-pipeline--steps {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* Each step: compact text, allowed to wrap, no clipping */
+  .hero-system-step,
+  .hero-system-pipeline--step {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    font-size: 0.7rem !important;
+    line-height: 1.15;
+    white-space: normal !important;   /* allow 2-line labels */
+  }
+
+  /* Dots a bit smaller so they don't crowd the text */
+  .hero-system-step::before,
+  .hero-system-pipeline--step::before {
+    width: 7px !important;
+    height: 7px !important;
+  }
+}
