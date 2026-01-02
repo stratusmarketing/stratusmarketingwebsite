@@ -5392,41 +5392,39 @@ html[data-theme="light"] .hero-panel {
     justify-content: center;
   }
 
-  /* --- RADAR PANEL: radar fixed on left, metrics swipe horizontally --- */
+  /* --- RADAR PANEL (MOBILE): radar on top, metrics stacked below --- */
 
   .hero-panel {
     padding: 1.2rem 1.1rem 1.3rem;
   }
 
-  /* Override the desktop grid for the radar body */
+  /* Stack radar and metrics vertically */
   .hero-panel-body {
     display: flex !important;
+    flex-direction: column;
     align-items: stretch;
-    gap: 0.8rem;
+    gap: 0.9rem;
   }
 
-  /* Radar area: fixed on the left */
+  /* Radar area: full width */
   .hero-panel-radar {
-    flex: 0 0 46%;
-    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
-  /* Metrics: horizontal scroll on the right */
+  /* Metrics: stacked (no horizontal scrolling) */
   .hero-panel-metrics {
-    flex: 1 1 54%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.8rem;
-    overflow-x: auto;
-    padding-bottom: 0.3rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
-  /* Each metric behaves like a horizontal "card" */
   .hero-panel-metric {
-    min-width: 220px;
-    scroll-snap-align: start;
+    width: 100%;
   }
 
   .hero-panel-metric-label {
@@ -5434,34 +5432,19 @@ html[data-theme="light"] .hero-panel {
   }
 
   .hero-panel-metric-value {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
   }
 
   .hero-panel-metric-text {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
   }
 
-  /* Footer copy: tighter so everything fits nicely */
   .hero-panel-footer {
-    margin-top: 0.7rem;
+    margin-top: 0.75rem;
   }
 
   .hero-panel-footnote {
     font-size: 0.78rem;
-  }
-
-  /* Make the horizontal scrollbar less intrusive on iOS */
-  .hero-panel-metrics::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .hero-panel-metrics::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .hero-panel-metrics::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.6);
-    border-radius: 999px;
   }
 }
 /* ================== LIGHT MODE – SNAPSHOT CLEANUP ================== */
@@ -5722,7 +5705,7 @@ html[data-theme="light"] .snapshot-metric-value {
 
   body.mobile .hero-title,
   .hero-title {
-    font-size: 1.85rem !important;
+    font-size: 3rem !important;
     line-height: 1.08 !important;
     margin-bottom: 0.4rem !important;
   }
@@ -5937,5 +5920,827 @@ html[data-theme="light"] .snapshot-metric-value {
   .hero-system-pipeline--step::before {
     width: 7px !important;
     height: 7px !important;
+  }
+}
+
+
+
+/* =========================================================
+   V7.0 – MOBILE POLISH (pipeline fit, radar layout, nav, theme, footer)
+   Append-only overrides to stabilize layout despite older duplicate rules.
+========================================================= */
+
+/* 1) Snapshot pipeline pill: always fit the card (no fixed px widths) */
+.hero-system-pipeline.hero-system-pipeline--steps {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  margin-top: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.hero-system-pipeline--steps .hero-system-pipeline-label {
+  display: block;
+  width: 100%;
+  margin: 0 0 0.35rem;
+  padding: 0 0.1rem;
+  text-align: left;
+}
+
+.hero-system-pipeline--steps .hero-system-steps {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background:
+    radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.22), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.hero-system-steps .hero-step {
+  min-width: 0;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-step-label {
+  min-width: 0;
+  font-size: 0.74rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .hero-system-pipeline--steps .hero-system-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 18px;
+  }
+  .hero-step-label {
+    white-space: normal;
+  }
+}
+
+/* Make sure nothing clips the pill on small screens */
+@media (max-width: 640px) {
+  .snapshot-card { overflow: visible; }
+}
+
+/* 2) Radar: force a true circle + stack earlier on mobile */
+@media (max-width: 980px) {
+  .hero-panel-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Replace padding-top square hack with aspect-ratio to prevent “oval” */
+.hero-panel-radar {
+  padding-top: 0 !important;
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+/* Ensure fill layers cover the radar disc */
+.hero-panel-radar .radar-grid,
+.hero-panel-radar .radar-sweep {
+  position: absolute;
+  inset: 0;
+}
+
+/* 3) Scroll hint: centered label */
+.hero-scroll-hint,
+.hero-scroll-label {
+  text-align: center;
+}
+
+/* 4) Mobile nav: smoother, clearer open/close + prevent weird squish animation */
+@media (max-width: 768px) {
+  .main-nav {
+    transform: translateY(-6px);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.18s ease-out,
+      transform 0.18s ease-out,
+      max-height 0.22s ease-out;
+  }
+
+  .main-nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 70vh;
+    pointer-events: auto;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  /* Hamburger button: 3-line -> X */
+  .nav-toggle-line {
+    width: 18px;
+    height: 2px;
+  }
+
+  .nav-toggle-line + .nav-toggle-line {
+    margin-top: 4px;
+  }
+
+  .nav-toggle.is-open .nav-toggle-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-toggle.is-open .nav-toggle-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.5);
+  }
+
+  .nav-toggle.is-open .nav-toggle-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+/* 5) Theme toggle: modern knob + subtle micro-interaction */
+.theme-toggle {
+  width: 48px;
+  height: 26px;
+  border-radius: 999px;
+  padding: 0;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.theme-toggle-icon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  transform: none !important;
+}
+
+.theme-toggle::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.9);
+  box-shadow: 0 10px 18px rgba(2, 6, 23, 0.55);
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+}
+
+html[data-theme="dark"] .theme-toggle::after {
+  transform: translateX(22px);
+  background: rgba(226, 232, 240, 0.95);
+}
+
+html[data-theme="light"] .theme-toggle::after {
+  transform: translateX(0);
+  background: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 18px rgba(249, 115, 22, 0.18);
+}
+
+/* 6) Footer: make light mode actually light + polished */
+html[data-theme="light"] .site-footer {
+  background: radial-gradient(circle at top, #f7fafc 0%, #eef2ff 55%, #e5ecf6 100%) !important;
+  color: var(--text-soft) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.45) !important;
+}
+
+html[data-theme="light"] .site-footer .footer-link,
+html[data-theme="light"] .site-footer a {
+  color: var(--text-soft) !important;
+}
+
+html[data-theme="light"] .site-footer .footer-link:hover,
+html[data-theme="light"] .site-footer a:hover {
+  color: #2563eb !important;
+}
+
+/* =========================================================
+   FIX: Mobile menu icon readability (clear hamburger -> X)
+   - Works with your current HTML (2 spans inside .nav-toggle)
+========================================================= */
+
+.nav-toggle{
+  position: relative;
+}
+
+/* Turn the button into an icon canvas */
+.nav-toggle{
+  display: flex; /* will still be toggled by your media queries */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide the old spacing behavior and make the spans act as top/bottom lines */
+.nav-toggle-line{
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  margin: 0 !important;
+  opacity: 1;
+}
+
+/* Top line = first span */
+.nav-toggle-line:nth-child(1){
+  top: 11px;
+}
+
+/* Bottom line = second span */
+.nav-toggle-line:nth-child(2){
+  top: 21px;
+}
+
+/* Middle line (pseudo element) */
+.nav-toggle::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text-soft);
+  transform: translateX(-50%);
+  transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+}
+
+/* Open state -> X */
+.nav-toggle.is-open .nav-toggle-line:nth-child(1){
+  top: 16px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.nav-toggle.is-open .nav-toggle-line:nth-child(2){
+  top: 16px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.nav-toggle.is-open::before{
+  opacity: 0;
+}
+
+/* =========================================================
+   FIX: Mobile pipeline visualization
+   Convert the horizontal "How the system moves" bar into a
+   clean vertical stepper on small screens (scroll down).
+========================================================= */
+
+@media (max-width: 520px){
+  /* Let the pill fit the card */
+  .hero-system-pipeline.hero-system-pipeline--steps{
+    padding: 0.75rem 0.9rem !important;
+    margin-top: 0.45rem !important;
+  }
+
+  /* Remove forced desktop widths */
+  .hero-system-steps{
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0.25rem 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+  }
+
+  /* Remove the horizontal connecting line */
+  .hero-system-steps::before{
+    content: none !important;
+  }
+
+  /* Each step becomes a row: dot + label */
+  .hero-step{
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 14px 1fr;
+    align-items: start;
+    column-gap: 0.6rem;
+    padding-left: 0 !important;
+  }
+
+  /* Dot */
+  .hero-step-dot{
+    width: 10px !important;
+    height: 10px !important;
+    margin-top: 0.2rem;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.12), 0 10px 30px rgba(56,189,248,0.08);
+  }
+
+  /* Label beside dot (not under it) */
+  .hero-step-label{
+    margin-top: 0 !important;
+    text-align: left !important;
+    line-height: 1.15;
+    font-size: 0.85rem;
+    opacity: 0.95;
+  }
+
+  /* Vertical connector between dots */
+  .hero-step:not(.hero-step--final)::after{
+    content: "";
+    position: absolute;
+    left: 5px;               /* aligns with dot center */
+    top: 14px;
+    width: 2px;
+    height: calc(100% - 6px);
+    border-radius: 999px;
+    background: linear-gradient(to bottom, rgba(59,130,246,0.0), rgba(59,130,246,0.55), rgba(34,211,238,0.45));
+    opacity: 0.8;
+  }
+}
+
+/* Ensure nav toggle only appears on mobile (prevents desktop bleed) */
+@media (min-width: 901px){
+  .nav-toggle{ display: none !important; }
+}
+@media (max-width: 900px){
+  .nav-toggle{ display: inline-flex !important; }
+}
+
+
+/* =========================================================
+   PATCH v4: Mobile polish
+   - Fix hamburger icon stable (no crazy morph)
+   - Improve "How the system moves" label + stepper spacing
+========================================================= */
+
+/* -------- NAV TOGGLE (mobile) -------- */
+@media (max-width: 900px){
+  .nav-toggle{
+    display: inline-flex !important;
+    position: relative !important;
+    overflow: hidden;
+  }
+
+  /* Reset any previous pseudo/positioning behavior */
+  .nav-toggle::before,
+  .nav-toggle::after{
+    content: none !important;
+  }
+
+  .nav-toggle-line{
+    position: absolute !important;
+    left: 50% !important;
+    width: 18px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+    transition: transform 0.18s ease-out, opacity 0.18s ease-out, top 0.18s ease-out !important;
+  }
+
+  .nav-toggle-line:nth-child(1){ top: 11px !important; }
+  .nav-toggle-line:nth-child(2){ top: 16px !important; }
+  .nav-toggle-line:nth-child(3){ top: 21px !important; }
+
+  /* Open -> clear X */
+  .nav-toggle.is-open .nav-toggle-line:nth-child(1){
+    top: 16px !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+  }
+  .nav-toggle.is-open .nav-toggle-line:nth-child(2){
+    opacity: 0 !important;
+  }
+  .nav-toggle.is-open .nav-toggle-line:nth-child(3){
+    top: 16px !important;
+    transform: translateX(-50%) rotate(-45deg) !important;
+  }
+
+  /* Hover/active feel (subtle) */
+  .nav-toggle:active{
+    transform: translateY(1px);
+  }
+}
+
+/* -------- MOBILE PIPELINE STEPPER POLISH -------- */
+@media (max-width: 520px){
+  /* Give the block more breathing room and use the full width */
+  .hero-system-pipeline.hero-system-pipeline--steps{
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0.85rem 0.95rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Make the label feel like a real section heading */
+  .hero-system-pipeline-label{
+    font-size: 0.95rem !important;
+    font-weight: 650 !important;
+    letter-spacing: 0.02em;
+    opacity: 0.95;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Steps: slightly bigger + fill the available width */
+  .hero-system-steps{
+    gap: 0.7rem !important;
+  }
+
+  .hero-step{
+    padding: 0.15rem 0 !important;
+  }
+
+  /* Use the "empty right space" as a subtle flow cue */
+  .hero-step-label{
+    font-size: 0.92rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hero-step-label::after{
+    content: "→";
+    opacity: 0.35;
+    margin-left: 0.75rem;
+    transform: translateY(-0.5px);
+  }
+
+  /* Last step shouldn't imply it continues */
+  .hero-step--final .hero-step-label::after{
+    content: "";
+    margin-left: 0;
+  }
+}
+
+
+/* =========================================================
+   PATCH v5: Fix "How the system moves" block (mobile)
+   - Make label feel integrated (size/spacing)
+   - Make the stepper use full width (no dead right space)
+   - Prevent clipping; add clear right-side flow cue
+========================================================= */
+@media (max-width: 520px){
+  /* make the whole block fill the card */
+  .hero-system-pipeline.hero-system-pipeline--steps{
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* label polish */
+  .hero-system-pipeline-label{
+    font-size: 0.92rem !important;
+    font-weight: 650 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--text) !important;
+    opacity: 0.92 !important;
+    margin: 0.15rem 0 0.6rem !important;
+  }
+
+  /* steps container */
+  .hero-system-steps{
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.55rem 0.65rem !important;
+    border-radius: 16px !important;
+    overflow: visible !important;
+  }
+
+  /* each step row */
+  .hero-step{
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    padding: 0.18rem 2.2rem 0.18rem 0.1rem !important; /* right room for arrow */
+    min-height: 2rem !important;
+    overflow: visible !important;
+  }
+
+  .hero-step-dot{
+    flex: 0 0 10px !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .hero-step-label{
+    flex: 1 1 auto !important;
+    display: block !important;
+    font-size: 0.92rem !important;
+    line-height: 1.22 !important;
+    white-space: normal !important;  /* prevent truncation */
+    overflow: visible !important;
+  }
+
+  /* subtle right-side flow cue (uses the right space) */
+  .hero-step:not(.hero-step--final)::before{
+    content: "→";
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: rgba(148, 163, 184, 0.7);
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
+    pointer-events: none;
+  }
+
+  /* keep vertical connector aligned and not clipping */
+  .hero-step:not(.hero-step--final)::after{
+    left: 4px !important;
+  }
+}
+
+
+/* =========================================================
+   PATCH v6: Mobile stepper alignment + label integration
+   - Make "How the system moves:" feel native (size/spacing)
+   - Prevent wrapping/clipping in step labels
+   - Balance inner padding so it doesn't feel cramped/shifted
+========================================================= */
+@media (max-width: 520px){
+  /* Section label: integrated + not floating */
+  .hero-system-pipeline--steps-label{
+    font-size: 1.02rem !important;
+    letter-spacing: 0.02em !important;
+    margin: 0.9rem 0 0.55rem !important;
+    opacity: 0.95 !important;
+  }
+
+  /* Stepper container: balanced padding, centered feel */
+  .hero-system-pipeline.hero-system-pipeline--steps{
+    padding: 0.85rem 0.95rem 0.9rem !important;
+  }
+
+  /* Use full width + remove any odd centering constraints */
+  .hero-system-steps{
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    padding: 0.75rem 0.95rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.2rem !important;
+  }
+
+  /* Each row: allow wrapping without clipping */
+  .hero-step{
+    align-items: flex-start !important;
+    padding: 0.28rem 1.9rem 0.28rem 0.25rem !important; /* right room for arrow */
+    min-height: unset !important;
+  }
+
+  .hero-step-dot{
+    margin-top: 0.28rem !important; /* aligns with first line of wrapped text */
+  }
+
+  .hero-step-label{
+    line-height: 1.25 !important;
+    padding-top: 0.05rem !important;
+  }
+
+  /* Arrow cue: keep centered even when label wraps */
+  .hero-step:not(.hero-step--final)::before{
+    top: 0.75rem !important;
+    transform: none !important;
+  }
+}
+/* =========================================================
+   FINAL OVERRIDE: Keep desktop pipeline look, fix mobile only
+   (Place this at the VERY BOTTOM of style.css)
+========================================================= */
+
+/* Ensure the wrapper never becomes a weird pill/container */
+.hero-system-pipeline.hero-system-pipeline--steps{
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+/* Label should behave consistently */
+.hero-system-pipeline--steps .hero-system-pipeline-label{
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 0.35rem !important;
+  text-align: left !important;
+}
+
+/* Kill any “arrow” pseudo-elements from older patches */
+.hero-system-pipeline--steps .hero-step::before,
+.hero-system-pipeline--steps .hero-step::after{
+  content: none !important;
+}
+
+/* MOBILE FIX */
+@media (max-width: 520px){
+
+  /* Force it back to the original horizontal stepper */
+  .hero-system-pipeline--steps .hero-system-steps{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+
+    padding: 0.42rem 0.55rem 0.38rem !important; /* symmetric */
+    gap: 0.35rem !important;
+
+    border-radius: 999px !important;
+    border: 1px solid rgba(148, 163, 184, 0.7) !important;
+    background:
+      radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.25), transparent 55%),
+      rgba(15, 23, 42, 0.98) !important;
+  }
+
+  /* Keep the connector line centered and not cramped */
+  .hero-system-pipeline--steps .hero-system-steps::before{
+    left: 9% !important;
+    right: 9% !important;
+    opacity: 0.6 !important;
+  }
+
+  /* Each step can shrink + wrap cleanly */
+  .hero-system-pipeline--steps .hero-step{
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
+
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.66rem !important;
+    line-height: 1.15 !important;
+    max-width: 5.8rem !important;      /* keeps “Booked intro / call” tidy */
+    white-space: normal !important;     /* allow 2 lines */
+    text-align: center !important;
+  }
+
+  .hero-system-pipeline--steps .hero-step-dot{
+    width: 9px !important;
+    height: 9px !important;
+  }
+}
+/* =========================================================
+   MICRO ADJUSTMENTS (MOBILE) – pipeline readability + spacing
+========================================================= */
+@media (max-width: 520px){
+
+  /* Slightly taller pill + more breathing room */
+  .hero-system-pipeline--steps .hero-system-steps{
+    padding: 0.52rem 0.7rem 0.48rem !important;
+    gap: 0.42rem !important;
+  }
+
+  /* Slightly larger text + better vertical rhythm */
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.68rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.01em !important;
+    max-width: 6.2rem !important;
+  }
+
+  /* Make dots feel more premium / visible */
+  .hero-system-pipeline--steps .hero-step-dot{
+    width: 10px !important;
+    height: 10px !important;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.28) !important;
+  }
+
+  /* Final step: keep it from looking cramped */
+  .hero-system-pipeline--steps .hero-step--final .hero-step-label{
+    max-width: 6.6rem !important;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px){
+  .hero-system-pipeline--steps .hero-system-steps{
+    padding: 0.5rem 0.6rem 0.46rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.66rem
+/* =========================================================
+   FINAL PIPELINE POLISH – arrow centering + text breathing
+========================================================= */
+
+/* Ensure perfect vertical centering for everything */
+.hero-system-pipeline--steps .hero-system-steps{
+  align-items: center !important;
+}
+
+/* Normalize step internals */
+.hero-system-pipeline--steps .hero-step{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+/* Fix label cramped feeling */
+.hero-system-pipeline--steps .hero-step-label{
+  line-height: 1.15 !important;
+  margin-top: 0.15rem !important;
+}
+
+/* === ARROW FIX ======================================= */
+
+/* Target arrow characters between steps */
+.hero-system-pipeline--steps .hero-step + .hero-step::before{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: 100% !important;
+  line-height: 1 !important;
+
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Slight horizontal spacing so arrows don’t feel tight */
+.hero-system-pipeline--steps .hero-step{
+  padding-inline: 0.15rem !important;
+}
+
+/* MOBILE breathing room */
+@media (max-width: 520px){
+  .hero-system-pipeline--steps .hero-system-steps{
+    padding-block: 0.55rem !important;
+  }
+
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.68rem !important;
+    max-width: 6.4rem !important;
+  }
+}
+/* =========================================================
+   PATCH v7: Flow bar arrows + line alignment (mobile only)
+   - Align connector line through dot centers
+   - Center the "→" arrows on the same line
+   - Give labels a bit more breathing room
+========================================================= */
+@media (max-width: 520px){
+  /* Make the connector line run through the DOT centers (not mid-label) */
+  .hero-system-pipeline--steps .hero-system-steps::before{
+    top: 0.42rem !important;                 /* aligns with dot center */
+    transform: translateY(-50%) !important;  /* keep top as center point */
+  }
+
+  /* Slightly tighter pill so text has more room */
+  .hero-system-pipeline--steps .hero-system-steps{
+    padding: 0.55rem 0.9rem !important;
+    gap: 0.35rem !important;
+  }
+
+  /* Let labels wrap cleanly instead of feeling cramped */
+  .hero-system-pipeline--steps .hero-step{
+    min-width: 0 !important;
+  }
+
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.68rem !important;
+    line-height: 1.12 !important;
+    white-space: normal !important;
+    max-width: 5.3rem !important;  /* keeps “Booked intro / call” tidy */
+    text-align: center !important;
+  }
+
+  /* Center the arrows on the SAME line as the connector/dots */
+  .hero-system-pipeline--steps .hero-step:not(.hero-step--final)::before{
+    top: 0.42rem !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* Extra-small phones: tiny nudge so nothing feels squeezed */
+@media (max-width: 380px){
+  .hero-system-pipeline--steps .hero-step-label{
+    font-size: 0.66rem !important;
+    max-width: 5.0rem !important;
   }
 }
