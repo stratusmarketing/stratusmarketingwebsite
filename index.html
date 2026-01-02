@@ -71,9 +71,9 @@
       </nav>
 
       <div class="header-controls">
-        <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme">
-          <span class="theme-toggle-icon theme-toggle-icon--sun">☀</span>
-          <span class="theme-toggle-icon theme-toggle-icon--moon">☾</span>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+          <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true">☀</span>
+          <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true">☾</span>
         </button>
         <a href="https://calendly.com/stratusmarketingllc/30min"
            class="btn btn-primary btn-header"
@@ -81,7 +81,8 @@
            rel="noreferrer">
           Book now
         </a>
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="nav-toggle-line"></span>
           <span class="nav-toggle-line"></span>
           <span class="nav-toggle-line"></span>
         </button>
@@ -159,7 +160,7 @@
             <div class="snapshot-metric">
               <div class="snapshot-metric-label">Lead volume</div>
               <div class="snapshot-metric-value">
-                2–3× more<br />qualified inquiries
+                2–3× more<br />qualified enquiries
               </div>
             </div>
 
@@ -181,7 +182,7 @@
           <!-- Short story text -->
           <p class="snapshot-summary">
             In practice, our clients see a
-            <span class="text-value">steady, predictable flow of qualified inquiries</span>
+            <span class="text-value">steady, predictable flow of qualified enquiries</span>
             that turn into booked intro flights, discovery flights, and long-term students —
             <span class="text-pain">not one “good month” followed by silence.</span>
           </p>
@@ -522,7 +523,3 @@
 <script src="app.js"></script>
 </body>
 </html>
-
-
-
-
