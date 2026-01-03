@@ -7053,3 +7053,759 @@ html[data-theme="light"] .footer-icon {
     background: var(--text) !important;
   }
 }
+/* =========================================================
+   PREMIUM MOTION + UX (Stratus) — Add at end of style.css
+   ========================================================= */
+
+/* ---------- Soundless feedback (global) ---------- */
+:where(a, button, .btn, .who-card, .fit-card, .snapshot-card, .hero-panel) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn,
+.who-card,
+.fit-card,
+.snapshot-card,
+.hero-panel {
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.who-card:active,
+.fit-card:active,
+.snapshot-card:active,
+.hero-panel:active {
+  transform: translateY(1px);
+}
+
+/* Better focus rings */
+:focus-visible {
+  outline: none;
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.nav-toggle:focus-visible,
+.theme-toggle:focus-visible {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35), 0 10px 30px rgba(15, 23, 42, 0.35);
+}
+
+/* ---------- CTA: idle pulse (subtle) ---------- */
+.btn-primary {
+  position: relative;
+  will-change: transform, box-shadow;
+}
+
+@keyframes cta-breathe {
+  0%   { box-shadow: 0 12px 30px rgba(56, 189, 248, 0.34); }
+  50%  { box-shadow: 0 18px 44px rgba(56, 189, 248, 0.48); }
+  100% { box-shadow: 0 12px 30px rgba(56, 189, 248, 0.34); }
+}
+
+/* Only animate when user has a pointer + not reduced motion */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary.btn-cta-idle {
+    animation: cta-breathe 7.5s ease-in-out infinite;
+  }
+}
+
+/* ---------- Magnetic hover base (JS drives the movement) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary.is-magnetic {
+    transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) scale(1.01);
+  }
+  .btn-primary.is-magnetic::after {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--hx, 50%) var(--hy, 50%),
+      rgba(255, 255, 255, 0.18),
+      transparent 55%
+    );
+    opacity: 0.65;
+    pointer-events: none;
+    transition: opacity 0.18s ease-out;
+  }
+}
+
+/* ---------- Soft cursor state changes (no custom cursor) ---------- */
+body.cursor-btn .btn-primary,
+body.cursor-btn .btn-ghost {
+  transform: translateY(-1px);
+}
+
+body.cursor-link .nav-link {
+  color: var(--text);
+}
+
+/* ---------- Sticky header with intent ---------- */
+.site-header {
+  will-change: transform, background, box-shadow, border-color;
+  transition:
+    transform 0.18s ease-out,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* Compact state (scroll down a bit) */
+.site-header.is-compact {
+  border-bottom-color: rgba(148, 163, 184, 0.45);
+  box-shadow: 0 18px 44px rgba(2, 6, 23, 0.35);
+}
+
+/* Slightly tighten inner spacing */
+.site-header.is-compact .header-inner {
+  height: calc(var(--nav-height) - 8px);
+}
+
+/* ---------- Reveal tied to scroll “energy” (JS sets vars) ---------- */
+.reveal {
+  transition-duration: var(--reveal-dur, 0.5s);
+  transition-timing-function: var(--reveal-ease, ease-out);
+  transform: translateY(var(--reveal-y, 12px));
+}
+
+.reveal-visible {
+  transform: translateY(0);
+}
+
+/* ---------- Radar: blips only on sweep pass (JS toggles class) ---------- */
+.radar-blip {
+  opacity: 0;
+  transform: scale(0.65);
+  transition: opacity 0.16s ease-out, transform 0.16s ease-out;
+  animation: none !important; /* IMPORTANT: kill the old loop */
+}
+
+.radar-blip.radar-blip-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radar-blip.radar-blip-active::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  opacity: 0.6;
+  transform: scale(0.6);
+  animation: blip-ring 0.55s ease-out forwards;
+}
+
+@keyframes blip-ring {
+  to {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+/* ---------- Pipeline: slow flow movement on hover ---------- */
+.hero-system-steps {
+  position: relative;
+}
+
+.hero-system-steps::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0.10),
+    rgba(56, 189, 248, 0.42),
+    rgba(34, 197, 94, 0.42),
+    rgba(34, 197, 94, 0.10)
+  );
+  opacity: 0.0;
+  filter: blur(0.2px);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+@keyframes pipeline-flow {
+  0% { background-position: 0% 50%; opacity: 0.35; }
+  100% { background-position: 100% 50%; opacity: 0.35; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-system-pipeline:hover .hero-system-steps::before {
+    opacity: 1;
+    background-size: 220% 100%;
+    animation: pipeline-flow 2.8s linear infinite;
+  }
+}
+
+/* ---------- Pipeline: success state on final step ---------- */
+.hero-step--final .hero-step-dot {
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+  transition: box-shadow 0.2s ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-step--final:hover .hero-step-dot {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.22);
+  }
+
+  .hero-step--final:hover .hero-step-label::after {
+    content: "Where revenue starts";
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.72rem;
+    color: rgba(34, 197, 94, 0.95);
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.28);
+  }
+}
+/* Count-up spans need measurable size for IntersectionObserver */
+[data-count]{
+  display: inline-block;
+  min-width: 2ch;      /* prevents "~ of volume" while counting */
+}
+/* Count-up spans: stable width so the line doesn't shift */
+.countup {
+  display: inline-block;
+  min-width: 3ch;
+}
+/* =========================================================
+   NEXT LEVEL UPGRADES (tooltips, shimmer, spotlight, linking)
+   Paste at VERY END of style.css
+   ========================================================= */
+
+/* ---------- CTA shimmer (subtle, premium) ---------- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 60%
+  );
+  transform: translateX(-60%) rotate(12deg);
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes cta-shimmer {
+  0% { transform: translateX(-65%) rotate(12deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateX(55%) rotate(12deg); opacity: 0; }
+}
+.btn-primary.shimmer::before {
+  animation: cta-shimmer 1.15s ease-out forwards;
+}
+
+/* ---------- Card spotlight (follows cursor) ---------- */
+.who-card,
+.hero-panel-metric,
+.snapshot-card,
+.fit-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.who-card::before,
+.hero-panel-metric::before,
+.snapshot-card::before,
+.fit-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    280px circle at var(--sx, 50%) var(--sy, 50%),
+    rgba(56, 189, 248, 0.14),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.18s ease-out;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .who-card:hover::before,
+  .hero-panel-metric:hover::before,
+  .snapshot-card:hover::before,
+  .fit-card:hover::before {
+    opacity: 1;
+  }
+}
+
+/* ---------- Radar tooltips ---------- */
+.radar-tooltip {
+  position: absolute;
+  z-index: 20;
+  padding: 0.45rem 0.55rem;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  color: var(--text);
+  background: rgba(2, 6, 23, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 18px 44px rgba(2, 6, 23, 0.55);
+  transform: translate(-50%, -110%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease-out, transform 0.14s ease-out;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+.radar-tooltip.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -125%);
+}
+
+/* ---------- Link metric hover -> highlight ---------- */
+.hero-panel-metric.is-hot {
+  border-color: rgba(56, 189, 248, 0.75);
+  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.12);
+}
+
+.radar-blip.is-hot {
+  box-shadow: 0 0 0 9px rgba(56, 189, 248, 0.22);
+}
+
+/* ---------- Make countup spans stable width (no “~ of volume” blank) ---------- */
+.countup {
+  display: inline-block;
+  min-width: 3ch;
+}
+
+
+
+/* ===== ALIVE FIX (v3): ensure radar interactivity + tooltip pill always works ===== */
+.hero-panel-radar .radar-grid,
+.hero-panel-radar .radar-ring,
+.hero-panel-radar .radar-sweep{
+  pointer-events: none !important;
+}
+
+.hero-panel-radar .radar-blip{
+  pointer-events: auto !important;
+  z-index: 6 !important;
+}
+
+/* Hide any legacy in-radar tooltip */
+.radar-tooltip{ display:none !important; }
+
+/* Floating tooltip pill mounted to body */
+.radar-tooltip-floating{
+  position: fixed !important;
+  z-index: 999999 !important;
+  left: 0;
+  top: 0;
+  padding: 8px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(2, 6, 23, 0.92) !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  color: rgba(255,255,255,0.92) !important;
+  font-size: 12px !important;
+  letter-spacing: .2px !important;
+  white-space: nowrap !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(6px) scale(0.99) !important;
+  transition: opacity .14s ease, transform .14s ease, visibility .14s ease !important;
+}
+.radar-tooltip-floating.is-visible{
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+
+
+/* -------------------------------------------------------
+   V4: Ensure radar blips are hoverable (pointer events + hit area)
+-------------------------------------------------------- */
+
+/* Let mouse pass through decorative layers */
+.radar-grid,
+.radar-sweep,
+.radar-ring{
+  pointer-events: none !important;
+}
+
+/* Make sure blips sit on top and are easy to hit */
+.radar-blip{
+  z-index: 20 !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Invisible hit area so hover/click is easy while still looking small */
+.radar-blip::after{
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+/* Discovery hint: show faint blips when user hovers the radar */
+.hero-panel-radar:hover .radar-blip{
+  opacity: 0.75 !important;
+  transform: scale(1);
+}
+
+/* On hover: brighten so user knows it's interactive */
+.radar-blip:hover{
+  opacity: 1 !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 10px rgba(56,189,248,0.18), 0 0 22px rgba(56,189,248,0.38);
+}
+/* ================================
+   Radar tooltip pill + blip hover
+   ================================ */
+
+/* Ensure decorative radar layers never steal hover/click */
+.radar-grid,
+.radar-sweep,
+.radar-ring{
+  pointer-events: none !important;
+}
+
+/* Hide any old in-panel tooltip */
+.radar-tooltip{ display:none !important; }
+
+/* Floating pill tooltip (mounted to <body>) */
+.radar-tooltip-floating{
+  position: fixed !important;
+  z-index: 999999 !important;
+  left: 0;
+  top: 0;
+  padding: 8px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(2,6,23,0.92) !important;
+  border: 1px solid rgba(148,163,184,0.35) !important;
+  color: rgba(255,255,255,0.92) !important;
+  font-size: 12px !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35) !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(6px) scale(0.99) !important;
+  transition: opacity .14s ease, transform .14s ease, visibility .14s ease !important;
+}
+.radar-tooltip-floating.is-visible{
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Blips must sit above layers and be easy to hit */
+.radar-blip{
+  position: absolute;
+  z-index: 20 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Big invisible hit area so hover works */
+.radar-blip::after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:999px;
+  background:transparent;
+}
+
+/* Hint so user can find blips */
+.hero-panel-radar:hover .radar-blip{
+  opacity: 0.75 !important;
+}
+
+/* Hover feedback */
+.radar-blip:hover{
+  opacity: 1 !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 10px rgba(56,189,248,0.18), 0 0 22px rgba(56,189,248,0.38);
+}
+/* ================================
+   ALWAYS-ALIVE (PREMIUM) MOTION
+   Paste near end of style.css
+================================ */
+
+/* 1) Hero background drift (very slow) */
+@keyframes bg-drift {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  50% { background-position: 18% 8%, 82% 10%, 52% 92%; }
+  100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+}
+
+.hero-center-inner {
+  background-size: 140% 140%, 140% 140%, auto;
+  animation: bg-drift 18s ease-in-out infinite;
+}
+
+/* 2) Orbit rings slow rotation */
+@keyframes orbit-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.hero-orbit-decoration {
+  animation: orbit-rotate 46s linear infinite;
+  transform-origin: center;
+}
+
+/* 3) Card “breathing” (very subtle) */
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.snapshot-card,
+.hero-panel {
+  animation: breathe 7.5s ease-in-out infinite;
+}
+
+/* Slightly offset so they don't move in sync */
+.hero-panel { animation-delay: 0.9s; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-center-inner,
+  .hero-orbit-decoration,
+  .snapshot-card,
+  .hero-panel {
+    animation: none !important;
+  }
+}
+/* ================================
+   PIPELINE STEP ANIMATION STATES
+================================ */
+
+/* baseline polish */
+.hero-system-steps .hero-step {
+  position: relative;
+  transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+  opacity: 0.82;
+}
+
+.hero-system-steps .hero-step-dot {
+  transition: transform 180ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+/* Active step */
+.hero-system-steps .hero-step.is-active {
+  opacity: 1;
+  transform: translateY(-1px);
+  filter: saturate(1.06);
+}
+
+.hero-system-steps .hero-step.is-active .hero-step-dot {
+  transform: scale(1.12);
+  background: #38bdf8;
+  box-shadow:
+    0 0 0 6px rgba(56, 189, 248, 0.18),
+    0 0 26px rgba(56, 189, 248, 0.35);
+}
+
+.hero-system-steps .hero-step.is-active .hero-step-label {
+  color: rgba(226, 232, 240, 0.98);
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.22);
+}
+
+/* Final “success” pop */
+@keyframes step-success-pop {
+  0% { transform: translateY(-1px) scale(1); }
+  40% { transform: translateY(-1px) scale(1.03); }
+  100% { transform: translateY(-1px) scale(1); }
+}
+
+.hero-system-steps .hero-step.is-success .hero-step-dot {
+  background: #22c55e;
+  box-shadow:
+    0 0 0 7px rgba(34, 197, 94, 0.18),
+    0 0 30px rgba(34, 197, 94, 0.30);
+}
+
+.hero-system-steps .hero-step.is-success .hero-step-label {
+  color: rgba(34, 197, 94, 0.98);
+  text-shadow: 0 0 14px rgba(34, 197, 94, 0.22);
+}
+
+.hero-system-steps .hero-step.is-success {
+  animation: step-success-pop 650ms ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-system-steps .hero-step,
+  .hero-system-steps .hero-step-dot {
+    transition: none !important;
+  }
+  .hero-system-steps .hero-step.is-success {
+    animation: none !important;
+  }
+}
+/* =========================================
+   FORCE PIPELINE FLOW (MOBILE + DESKTOP)
+========================================= */
+
+.hero-system-steps::before {
+  opacity: 0.75;
+  background-size: 220% 100%;
+  animation: pipeline-flow 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-system-steps::before {
+    animation: none !important;
+  }
+}
+/* TEMP TEST — remove after */
+.hero-center-inner { outline: 3px solid hotpink !important; }
+/* =========================================================
+   PREMIUM MICRO-MOTION (Hero drift • Orbit rotate • Card breathe)
+   Paste at END of style.css
+========================================================= */
+
+/* If you have iOS “Reduce Motion” enabled, these won’t run. */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* 1) Slow gradient drift on hero wrapper (OLED glow moving) */
+  .hero-center-inner::before{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    pointer-events:none;
+    z-index:0;
+
+    background:
+      radial-gradient(circle at 20% 25%, rgba(56,189,248,0.22), transparent 55%),
+      radial-gradient(circle at 80% 20%, rgba(59,130,246,0.18), transparent 55%),
+      radial-gradient(circle at 60% 85%, rgba(56,189,248,0.14), transparent 60%);
+    filter: blur(38px);
+    opacity: 0.75;
+    transform: translate3d(0,0,0);
+    animation: hero-glow-drift 22s ease-in-out infinite alternate;
+  }
+
+  /* Keep your existing content above the drift layer */
+  .hero-center-inner > *{
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes hero-glow-drift{
+    0%   { transform: translate(-1.5%, -1%) scale(1.02); }
+    50%  { transform: translate(1.2%,  1.1%) scale(1.04); }
+    100% { transform: translate(-0.6%, 1.8%) scale(1.03); }
+  }
+
+  /* 2) Slow orbit ring rotation (super slow, premium) */
+  .hero-orbit-decoration{
+    transform-origin: 50% 50%;
+    animation: hero-orbit-rotate 110s linear infinite;
+  }
+
+  @keyframes hero-orbit-rotate{
+    to { transform: rotate(360deg); }
+  }
+
+  /* 3) Soft “breathing” pulse on key cards (snapshot, radar panel) */
+  .snapshot-card,
+  .hero-panel{
+    animation: card-breathe 7.5s ease-in-out infinite;
+    will-change: transform, box-shadow;
+  }
+
+  @keyframes card-breathe{
+    0%, 100%{
+      transform: translateY(0);
+      box-shadow: var(--shadow-soft);
+    }
+    50%{
+      transform: translateY(-2px);
+      box-shadow: 0 24px 70px rgba(56, 189, 248, 0.16), var(--shadow-soft);
+    }
+  }
+}
+
+/* Debug: if you STILL don't see this outline, your stylesheet isn’t loading */
+.hero-center-inner{
+  outline: 2px dashed rgba(255, 0, 170, 0.55);
+  outline-offset: 6px;
+}<style>
+  /* === STRATUS: ALWAYS-ON LIFE (INLINE OVERRIDE) === */
+
+  /* 0) PROOF THIS IS WORKING (you will see a subtle dashed outline) */
+  .hero-center-inner { outline: 2px dashed rgba(255, 0, 170, .55) !important; outline-offset: 6px; }
+
+  /* 1) OLED-like slow glow drift behind hero */
+  .hero-center-inner { position: relative; overflow: hidden; }
+  .hero-center-inner::before{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(circle at 20% 25%, rgba(56,189,248,0.22), transparent 55%),
+      radial-gradient(circle at 80% 20%, rgba(59,130,246,0.18), transparent 55%),
+      radial-gradient(circle at 60% 85%, rgba(56,189,248,0.14), transparent 60%);
+    filter: blur(38px);
+    opacity: 0.75;
+    transform: translate3d(0,0,0);
+    animation: heroGlowDrift 22s ease-in-out infinite alternate;
+  }
+  .hero-center-inner > *{ position:relative; z-index:1; }
+
+  @keyframes heroGlowDrift{
+    0%   { transform: translate(-1.5%, -1%) scale(1.02); }
+    50%  { transform: translate( 1.2%,  1.1%) scale(1.04); }
+    100% { transform: translate(-0.6%,  1.8%) scale(1.03); }
+  }
+
+  /* 2) Orbit rings: slow rotation */
+  .hero-orbit-decoration{
+    transform-origin: 50% 50%;
+    animation: orbitRotate 110s linear infinite;
+  }
+  @keyframes orbitRotate{ to { transform: rotate(360deg); } }
+
+  /* 3) Key cards: subtle “breathing” */
+  .snapshot-card, .hero-panel{
+    animation: cardBreathe 7.5s ease-in-out infinite;
+  }
+  @keyframes cardBreathe{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-2px); }
+  }
+
+  /* 4) Animate “Ad seen → Lead captured → Follow-up → Booked intro”
+        (your app.js already adds .is-active and .is-success) */
+  .hero-system-steps .hero-step{ opacity: .72; transition: opacity .22s ease, transform .22s ease, filter .22s ease; }
+  .hero-system-steps .hero-step.is-active{ opacity: 1; transform: translateY(-1px); filter: saturate(1.08); }
+  .hero-system-steps .hero-step.is-success{ opacity: 1; filter: drop-shadow(0 12px 24px rgba(34,197,94,.22)); }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero-center-inner::before, .hero-orbit-decoration, .snapshot-card, .hero-panel { animation: none !important; }
+  }
+</style>
