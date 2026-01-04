@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["stratusv3"]
   workflow_dispatch:
 
 permissions:
