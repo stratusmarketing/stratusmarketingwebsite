@@ -6,6 +6,7 @@ import TacticalHUD from './components/TacticalHUD';
 import PipelineSteps from './components/PipelineSteps';
 import GeminiConsultant from './components/GeminiConsultant';
 import AirTrafficFeed from './components/AirTrafficFeed';
+import coreTestimonial from './videos/Core_Testimonial1.mp4';
 
 const CALENDLY_LINK = "https://calendly.com/stratusmarketingllc/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/stratusmarketingllc/";
@@ -189,10 +190,10 @@ const App: React.FC = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {[
         { 
-          title: 'Flight Schools', 
-          desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', 
-          icon: '🛫',
-          video: './videos/Core_Testimonial1.mp4' // Added ./ for better path resolution
+        title: 'Flight Schools', 
+        desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', 
+        icon: '🛫',
+        video: coreTestimonial // Use the imported variable here
         },
         { 
           title: 'High Ticket Services', 
