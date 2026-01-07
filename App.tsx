@@ -192,7 +192,7 @@ const App: React.FC = () => {
           title: 'Flight Schools', 
           desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', 
           icon: '🛫',
-          video: 'videos/Core_Testimonial1.mp4' // Your video link here
+          video: './videos/Core_Testimonial1.mp4' // Added ./ for better path resolution
         },
         { 
           title: 'High Ticket Services', 
@@ -207,25 +207,32 @@ const App: React.FC = () => {
           video: '' 
         }
       ].map((item, i) => (
-        <div key={i} className={`p-8 rounded-[2rem] border transition-all duration-500 text-center flex flex-col items-center ${
+        <div key={i} className={`p-8 rounded-[3rem] border transition-all duration-500 text-center flex flex-col items-center min-h-[450px] justify-between ${
           theme === 'dark' ? 'bg-slate-900/30 border-white/5 hover:border-sky-500/20 shadow-sm' : 'bg-white border-slate-100 shadow-sm hover:border-sky-300'
         }`}>
-          {/* Video / Icon Container */}
-          <div className="mb-6 w-full aspect-video rounded-2xl overflow-hidden bg-sky-500/10 flex items-center justify-center relative">
+          
+          {/* 9:16 Vertical Video/Icon Container */}
+          <div className="w-full aspect-[9/16] max-w-[220px] rounded-3xl overflow-hidden bg-sky-500/10 flex items-center justify-center relative mb-6 border border-white/5 shadow-inner">
             {item.video ? (
               <video 
-                src={item.video}
-                className="w-full h-full object-cover"
+                key={item.video}
+                className="absolute inset-0 w-full h-full object-cover"
                 controls
                 playsInline
-              />
+                preload="auto"
+              >
+                <source src={item.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             ) : (
-              <div className="text-4xl">{item.icon}</div>
+              <div className="text-5xl">{item.icon}</div>
             )}
           </div>
 
-          <h3 className={`text-xl font-black mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
-          <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
+          <div className="space-y-2">
+            <h3 className={`text-xl font-black ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+            <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
+          </div>
         </div>
       ))}
     </div>
