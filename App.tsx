@@ -6,6 +6,7 @@ import TacticalHUD from './components/TacticalHUD';
 import PipelineSteps from './components/PipelineSteps';
 import GeminiConsultant from './components/GeminiConsultant';
 import AirTrafficFeed from './components/AirTrafficFeed';
+import coreTestimonial1 from './videos/Core_Testimonial1.mp4';
 
 const CALENDLY_LINK = "https://calendly.com/stratusmarketingllc/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/stratusmarketingllc/";
@@ -395,33 +396,77 @@ const App: React.FC = () => {
                       <h3 className={`text-3xl md:text-4xl font-black tracking-tighter ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Direct from the Flight Deck</h3>
                       <p className={`text-base md:text-lg font-medium opacity-60 ${theme === 'dark' ? 'text-slate-300' : 'text-slate-500'}`}>Real results shared by operators who scaled with Stratus.</p>
                    </div>
-                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      {[
-                        { caption: "Flight school owner on stabilizing demand", gradient: "from-sky-500/20 to-sky-950/20", icon: "🛫", tag: "Stabilized Scale" },
-                        { caption: "Consultant on predictable scaling", gradient: "from-indigo-500/20 to-indigo-950/20", icon: "💼", tag: "High-Ticket Growth" },
-                        { caption: "CEO on achieving 5x ROI", gradient: "from-emerald-500/20 to-emerald-950/20", icon: "🚀", tag: "Precision Impact" }
-                      ].map((v, i) => (
-                        <div key={i} className="flex flex-col space-y-6 group cursor-pointer">
-                           <div className={`aspect-[9/16] rounded-[3rem] bg-gradient-to-br ${v.gradient} border border-white/5 relative overflow-hidden flex items-center justify-center transition-all duration-1000 group-hover:scale-[1.03] group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] shadow-2xl`}>
-                              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                              <div className="absolute top-8 left-8">
-                                <span className="bg-sky-500/20 border border-sky-500/30 text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full text-sky-400">{v.tag}</span>
-                              </div>
-                              <div className="bg-white/10 backdrop-blur-md w-20 h-20 rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-sky-600 group-hover:border-sky-500">
-                                 <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.841z"/></svg>
-                              </div>
-                              <div className="absolute bottom-8 right-8 text-5xl opacity-40 group-hover:opacity-100 transition-opacity duration-700">{v.icon}</div>
-                           </div>
-                           <div className="px-2 space-y-2">
-                              <p className={`text-lg font-black leading-tight transition-colors ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{v.caption}</p>
-                              <div className="flex items-center space-x-2">
-                                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Verified Client</span>
-                              </div>
-                           </div>
-                        </div>
-                      ))}
-                   </div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {[
+    { 
+      caption: "Flight school owner on stabilizing demand", 
+      video: coreTestimonial1, // Using the imported file
+      gradient: "from-sky-500/20 to-sky-950/20", 
+      icon: "🛫", 
+      tag: "Stabilized Scale" 
+    },
+    { 
+      caption: "Consultant on predictable scaling", 
+      video: null, 
+      gradient: "from-indigo-500/20 to-indigo-950/20", 
+      icon: "💼", 
+      tag: "High-Ticket Growth" 
+    },
+    { 
+      caption: "CEO on achieving 5x ROI", 
+      video: null, 
+      gradient: "from-emerald-500/20 to-emerald-950/20", 
+      icon: "🚀", 
+      tag: "Precision Impact" 
+    }
+  ].map((v, i) => (
+    <div key={i} className="flex flex-col space-y-6 group cursor-pointer">
+       {/* 9:16 Vertical Container */}
+       <div className={`aspect-[9/16] rounded-[3rem] bg-gradient-to-br ${v.gradient} border border-white/5 relative overflow-hidden flex items-center justify-center transition-all duration-1000 group-hover:scale-[1.03] group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] shadow-2xl`}>
+          
+          {v.video ? (
+            <video 
+              className="absolute inset-0 w-full h-full object-cover"
+              controls
+              playsInline
+              preload="auto"
+            >
+              <source src={v.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              <div className="bg-white/10 backdrop-blur-md w-20 h-20 rounded-full flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-sky-600 group-hover:border-sky-500">
+                 <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.841z"/></svg>
+              </div>
+            </>
+          )}
+
+          {/* The "Pill" Tag */}
+          <div className="absolute top-8 left-8 z-20">
+            <span className="bg-sky-500/20 border border-sky-500/30 text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full text-sky-400 backdrop-blur-md">
+              {v.tag}
+            </span>
+          </div>
+          
+          <div className="absolute bottom-8 right-8 text-5xl opacity-40 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+            {v.icon}
+          </div>
+       </div>
+
+       <div className="px-2 space-y-2">
+          <p className={`text-lg font-black leading-tight transition-colors ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+            {v.caption}
+          </p>
+          <div className="flex items-center space-x-2">
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Verified Client</span>
+          </div>
+       </div>
+    </div>
+  ))}
+</div>
                  </div>
               </div>
             </section>
