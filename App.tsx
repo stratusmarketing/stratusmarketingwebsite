@@ -6,7 +6,6 @@ import TacticalHUD from './components/TacticalHUD';
 import PipelineSteps from './components/PipelineSteps';
 import GeminiConsultant from './components/GeminiConsultant';
 import AirTrafficFeed from './components/AirTrafficFeed';
-import coreTestimonial from './videos/Core_Testimonial1.mp4';
 
 const CALENDLY_LINK = "https://calendly.com/stratusmarketingllc/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/stratusmarketingllc/";
@@ -179,66 +178,31 @@ const App: React.FC = () => {
               </div>
             </section>
 
-<section className={`py-16 relative overflow-hidden`}>
-  <div className="container mx-auto px-6">
-    <div className="text-center mb-10 space-y-2">
-      <h2 className={`text-3xl md:text-4xl font-black tracking-tighter ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Aviation first, but not aviation-only.</h2>
-      <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-500'} text-base font-medium max-w-2xl mx-auto opacity-80`}>
-        Stratus started inside a flight school and now works with operators and founders running serious service-based businesses.
-      </p>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {[
-        { 
-        title: 'Flight Schools', 
-        desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', 
-        icon: '🛫',
-        video: coreTestimonial // Use the imported variable here
-        },
-        { 
-          title: 'High Ticket Services', 
-          desc: 'Consultants and service businesses that want booked, qualified calls, not just form fills.', 
-          icon: '💼',
-          video: '' 
-        },
-        { 
-          title: 'Service-Based Businesses', 
-          desc: 'Growth-focused companies looking for predictable pipelines and scalable customer acquisition protocols.', 
-          icon: '🚀',
-          video: '' 
-        }
-      ].map((item, i) => (
-        <div key={i} className={`p-8 rounded-[3rem] border transition-all duration-500 text-center flex flex-col items-center min-h-[450px] justify-between ${
-          theme === 'dark' ? 'bg-slate-900/30 border-white/5 hover:border-sky-500/20 shadow-sm' : 'bg-white border-slate-100 shadow-sm hover:border-sky-300'
-        }`}>
-          
-          {/* 9:16 Vertical Video/Icon Container */}
-          <div className="w-full aspect-[9/16] max-w-[220px] rounded-3xl overflow-hidden bg-sky-500/10 flex items-center justify-center relative mb-6 border border-white/5 shadow-inner">
-            {item.video ? (
-              <video 
-                key={item.video}
-                className="absolute inset-0 w-full h-full object-cover"
-                controls
-                playsInline
-                preload="auto"
-              >
-                <source src={item.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <div className="text-5xl">{item.icon}</div>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <h3 className={`text-xl font-black ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
-            <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+            <section className={`py-16 relative overflow-hidden`}>
+               <div className="container mx-auto px-6">
+                 <div className="text-center mb-10 space-y-2">
+                    <h2 className={`text-3xl md:text-4xl font-black tracking-tighter ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Aviation first, but not aviation-only.</h2>
+                    <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-500'} text-base font-medium max-w-2xl mx-auto opacity-80`}>
+                      Stratus started inside a flight school and now works with operators and founders running serious service-based businesses.
+                    </p>
+                 </div>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                      { title: 'Flight Schools', desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', icon: '🛫' },
+                      { title: 'High Ticket Services', desc: 'Consultants and service businesses that want booked, qualified calls, not just form fills.', icon: '💼' },
+                      { title: 'Service-Based Businesses', desc: 'Growth-focused companies looking for predictable pipelines and scalable customer acquisition protocols.', icon: '🚀' }
+                    ].map((item, i) => (
+                      <div key={i} className={`p-8 rounded-[2rem] border transition-all duration-500 text-center flex flex-col items-center ${
+                        theme === 'dark' ? 'bg-slate-900/30 border-white/5 hover:border-sky-500/20 shadow-sm' : 'bg-white border-slate-100 shadow-sm hover:border-sky-300'
+                      }`}>
+                        <div className="text-4xl mb-4 bg-sky-500/10 w-16 h-16 flex items-center justify-center rounded-2xl">{item.icon}</div>
+                        <h3 className={`text-xl font-black mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+                        <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
+                      </div>
+                    ))}
+                 </div>
+               </div>
+            </section>
 
             <section className={`py-20 relative overflow-hidden ${theme === 'dark' ? 'bg-slate-900/10' : 'bg-slate-50/50'}`}>
               <div className="container mx-auto px-6">
