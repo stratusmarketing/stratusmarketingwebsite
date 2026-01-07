@@ -178,31 +178,59 @@ const App: React.FC = () => {
               </div>
             </section>
 
-            <section className={`py-16 relative overflow-hidden`}>
-               <div className="container mx-auto px-6">
-                 <div className="text-center mb-10 space-y-2">
-                    <h2 className={`text-3xl md:text-4xl font-black tracking-tighter ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Aviation first, but not aviation-only.</h2>
-                    <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-500'} text-base font-medium max-w-2xl mx-auto opacity-80`}>
-                      Stratus started inside a flight school and now works with operators and founders running serious service-based businesses.
-                    </p>
-                 </div>
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {[
-                      { title: 'Flight Schools', desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', icon: '🛫' },
-                      { title: 'High Ticket Services', desc: 'Consultants and service businesses that want booked, qualified calls, not just form fills.', icon: '💼' },
-                      { title: 'Service-Based Businesses', desc: 'Growth-focused companies looking for predictable pipelines and scalable customer acquisition protocols.', icon: '🚀' }
-                    ].map((item, i) => (
-                      <div key={i} className={`p-8 rounded-[2rem] border transition-all duration-500 text-center flex flex-col items-center ${
-                        theme === 'dark' ? 'bg-slate-900/30 border-white/5 hover:border-sky-500/20 shadow-sm' : 'bg-white border-slate-100 shadow-sm hover:border-sky-300'
-                      }`}>
-                        <div className="text-4xl mb-4 bg-sky-500/10 w-16 h-16 flex items-center justify-center rounded-2xl">{item.icon}</div>
-                        <h3 className={`text-xl font-black mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
-                        <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
-                      </div>
-                    ))}
-                 </div>
-               </div>
-            </section>
+<section className={`py-16 relative overflow-hidden`}>
+  <div className="container mx-auto px-6">
+    <div className="text-center mb-10 space-y-2">
+      <h2 className={`text-3xl md:text-4xl font-black tracking-tighter ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Aviation first, but not aviation-only.</h2>
+      <p className={`${theme === 'dark' ? 'text-slate-300' : 'text-slate-500'} text-base font-medium max-w-2xl mx-auto opacity-80`}>
+        Stratus started inside a flight school and now works with operators and founders running serious service-based businesses.
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        { 
+          title: 'Flight Schools', 
+          desc: 'Intro flights, PPL, and advanced training pipelines that match your aircraft, instructors, and seasonality.', 
+          icon: '🛫',
+          video: 'videos/Core_Testimonial1.mp4' // Your video link here
+        },
+        { 
+          title: 'High Ticket Services', 
+          desc: 'Consultants and service businesses that want booked, qualified calls, not just form fills.', 
+          icon: '💼',
+          video: '' 
+        },
+        { 
+          title: 'Service-Based Businesses', 
+          desc: 'Growth-focused companies looking for predictable pipelines and scalable customer acquisition protocols.', 
+          icon: '🚀',
+          video: '' 
+        }
+      ].map((item, i) => (
+        <div key={i} className={`p-8 rounded-[2rem] border transition-all duration-500 text-center flex flex-col items-center ${
+          theme === 'dark' ? 'bg-slate-900/30 border-white/5 hover:border-sky-500/20 shadow-sm' : 'bg-white border-slate-100 shadow-sm hover:border-sky-300'
+        }`}>
+          {/* Video / Icon Container */}
+          <div className="mb-6 w-full aspect-video rounded-2xl overflow-hidden bg-sky-500/10 flex items-center justify-center relative">
+            {item.video ? (
+              <video 
+                src={item.video}
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+              />
+            ) : (
+              <div className="text-4xl">{item.icon}</div>
+            )}
+          </div>
+
+          <h3 className={`text-xl font-black mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+          <p className={`text-sm leading-relaxed font-medium opacity-70 ${theme === 'dark' ? 'text-slate-200' : 'text-slate-600'}`}>{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
             <section className={`py-20 relative overflow-hidden ${theme === 'dark' ? 'bg-slate-900/10' : 'bg-slate-50/50'}`}>
               <div className="container mx-auto px-6">
