@@ -10,13 +10,17 @@ const steps = [
 
 const PipelineSteps: React.FC<{ theme?: 'dark' | 'light' }> = ({ theme = 'dark' }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
+      // Only advance the step if the user is not hovering over the modules
+      if (!isPaused) {
+        setActiveStep((prev) => (prev + 1) % steps.length);
+      }
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   return (
     <div className="space-y-12 max-w-full">
@@ -48,9 +52,12 @@ const PipelineSteps: React.FC<{ theme?: 'dark' | 'light' }> = ({ theme = 'dark' 
         {steps.map((step, idx) => (
           <div 
             key={step.id} 
-            className={`p-10 rounded-[2.5rem] border transition-all duration-1000 ${
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onClick={() => setActiveStep(idx)}
+            className={`p-10 rounded-[2.5rem] border transition-all duration-1000 cursor-pointer ${
               idx === activeStep 
-                ? (theme === 'dark' ? 'bg-slate-900/80 border-sky-500/30 shadow-2xl' : 'bg-white border-sky-400 shadow-xl')
+                ? (theme === 'dark' ? 'bg-slate-900/80 border-sky-500/30 shadow-2xl scale-[1.02]' : 'bg-white border-sky-400 shadow-xl scale-[1.02]')
                 : (theme === 'dark' ? 'bg-transparent border-transparent opacity-30 grayscale' : 'bg-transparent border-transparent opacity-40 grayscale')
             }`}
           >

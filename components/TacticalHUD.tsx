@@ -6,8 +6,9 @@ const TacticalHUD: React.FC<{ theme?: 'dark' | 'light' }> = ({ theme = 'dark' })
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setOffset(prev => (prev + 0.5) % 100);
-    }, 50);
+      // We'll let offset grow continuously for the sine function
+      setOffset(prev => (prev + 0.05));
+    }, 30);
     return () => clearInterval(interval);
   }, []);
 
@@ -19,8 +20,11 @@ const TacticalHUD: React.FC<{ theme?: 'dark' | 'light' }> = ({ theme = 'dark' })
       {/* Horizon Line */}
       <div className={`absolute w-full h-[1px] ${theme === 'dark' ? 'bg-sky-500/30' : 'bg-sky-500/20'}`}></div>
       
-      {/* Vertical bars (Ladder) */}
-      <div className="absolute flex flex-col items-center space-y-8 pointer-events-none opacity-40" style={{ transform: `translateY(${(offset % 40) - 20}px)` }}>
+      {/* Vertical bars (Ladder) - Now using Math.sin for smooth back-and-forth */}
+      <div 
+        className="absolute flex flex-col items-center space-y-8 pointer-events-none opacity-40" 
+        style={{ transform: `translateY(${Math.sin(offset) * 25}px)` }}
+      >
         {[...Array(5)].map((_, i) => (
           <div key={i} className="flex flex-col items-center">
             <div className={`w-20 h-[2px] ${theme === 'dark' ? 'bg-sky-400' : 'bg-sky-600'}`}></div>
@@ -47,8 +51,8 @@ const TacticalHUD: React.FC<{ theme?: 'dark' | 'light' }> = ({ theme = 'dark' })
 
       {/* Data Readouts */}
       <div className="absolute top-10 left-10 text-[9px] font-black space-y-1">
-        <div className="text-sky-500">ALT: <span className="text-white">{(25000 + offset).toFixed(0)}</span></div>
-        <div className="text-sky-500">SPD: <span className="text-white">{(450 + offset / 10).toFixed(1)}KTS</span></div>
+        <div className="text-sky-500">ALT: <span className="text-white">{(25000 + Math.sin(offset) * 100).toFixed(0)}</span></div>
+        <div className="text-sky-500">SPD: <span className="text-white">{(450 + Math.cos(offset) * 5).toFixed(1)}KTS</span></div>
       </div>
 
       <div className="absolute bottom-10 right-10 text-[9px] font-black space-y-1 text-right">
