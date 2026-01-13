@@ -586,7 +586,7 @@ const App: React.FC = () => {
                    </div>
                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                       {[
-                        { caption: "Flight school owner on stabilizing demand", gradient: "from-sky-500/20 to-sky-950/20", videoSrc: "videos/video1.mp4", tag: "Stabilized Scale" },
+                        { caption: "Flight school owner on stabilizing demand", gradient: "from-sky-500/20 to-sky-950/20", videoSrc: "videos/CoreTestimonial1.mp4", tag: "Stabilized Scale" },
                         { caption: "Consultant on predictable scaling", gradient: "from-indigo-500/20 to-indigo-950/20", videoSrc: "videos/video2.mp4", tag: "High-Ticket Growth" },
                         { caption: "CEO on achieving 5x ROI", gradient: "from-emerald-500/20 to-emerald-950/20", videoSrc: "videos/video3.mp4", tag: "Precision Impact" }
                       ].map((v, i) => (
