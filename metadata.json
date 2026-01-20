@@ -1,7 +1,5 @@
 {
-  "name": "mobile Main Stratus Website",
-  "description": "A high-performance, AI-integrated marketing platform for flight schools and aviation operators, featuring real-time growth audits and a custom Gemini-powered marketing consultant.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
+  "name": "Stripe Stratus Websites",
+  "description": "High-performance web design and lead generation platform for service-based businesses and contractors, featuring exclusive review filtering technology and instant lead notifications.",
+  "requestFramePermissions": []
 }

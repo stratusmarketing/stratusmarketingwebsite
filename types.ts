@@ -1,30 +1,15 @@
 
-export enum Page {
-  HOME = 'home',
-  SERVICES = 'services',
-  RESULTS = 'results',
-  ABOUT = 'about',
-  CONTACT = 'contact',
-  PRIVACY = 'privacy'
-}
+import React from 'react';
 
-export interface Metric {
-  label: string;
-  value: string;
+export interface Feature {
+  title: string;
   description: string;
+  icon: React.ReactNode;
 }
 
 export interface Testimonial {
-  id: string;
-  author: string;
+  name: string;
   role: string;
   content: string;
-  videoPlaceholder?: string;
-}
-
-export interface LeadSnapshot {
-  month: string;
-  spend: number;
-  leads: number;
-  bookings: number;
+  stars: number;
 }
