@@ -1,15 +1,30 @@
 
-import React from 'react';
+export enum Page {
+  HOME = 'home',
+  SERVICES = 'services',
+  RESULTS = 'results',
+  ABOUT = 'about',
+  CONTACT = 'contact',
+  PRIVACY = 'privacy'
+}
 
-export interface Feature {
-  title: string;
+export interface Metric {
+  label: string;
+  value: string;
   description: string;
-  icon: React.ReactNode;
 }
 
 export interface Testimonial {
-  name: string;
+  id: string;
+  author: string;
   role: string;
   content: string;
-  stars: number;
+  videoPlaceholder?: string;
+}
+
+export interface LeadSnapshot {
+  month: string;
+  spend: number;
+  leads: number;
+  bookings: number;
 }
